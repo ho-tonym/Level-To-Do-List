@@ -1,0 +1,12 @@
+<h1>Log In</h1>
+
+<div class="text-center">
+  <%= form_for :user, url: '/users/login' do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name%><br>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br><br>
+    <%= f.submit "Sign In" %>
+    <!-- <button type="button" class="btn btn-primary btn-md">Sign In</button> -->
+  <% end %>
+</div>
