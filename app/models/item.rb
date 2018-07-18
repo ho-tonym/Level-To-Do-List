@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :list
-  belongs_to :tag
+  # belongs_to :tag
 
   validates :description, :presence => true
 

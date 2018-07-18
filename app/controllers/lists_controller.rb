@@ -15,6 +15,7 @@ class ListsController < ApplicationController
   end
 
   def create
+
     @list = List.new(list_params)
     if @list.save
       redirect_to list_url(@list)
@@ -23,12 +24,12 @@ class ListsController < ApplicationController
       render :index
     end
   end
+
   private
 
-    def list_params # strong parameters
+    def list_params
       params.require(:list).permit(:name)
     end
-
     # def require_login
     #   return head(:forbidden) unless session.include? :user_id
     # end

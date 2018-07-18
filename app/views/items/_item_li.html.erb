@@ -1,7 +1,16 @@
-<%= li_for_item(item) do %>
-  <div class="view">
-    <%= form_for_item_status(item) %>
-    <label><%= item.description %></label>
-    <%= button_to "x", list_item_path(item.list, item), :method => "delete", :class => "destroy" %>
+<li class="<%"completed" if item.complete?%>">
+  <div class="item-text">
+    <div class="row">
+    <%= form_for([@list, item]) do |f| %>
+      <%= f.check_box :status, :class => "col-offset-2", :checked => item.complete? %>
+      <%= f.submit %>
+    <% end %>
+
+<!-- div class="col-xs-12 col-sm-6 col-md-4"> -->
+  <label class="col"><%= item.description %></label>
+    <%= form_tag(list_item_path(item.list, item), :method => :delete) do %>
+      <button type="submit" class="col-destroy">X</button>
+    <%end%>
   </div>
-<% end %>
+  </div>
+</li>

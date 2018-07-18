@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def create
-    @list = List.find(params[:list_id]) # finding the parent
+    @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
       redirect_to list_path(@list)
@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  # for changing status of complete/na
   # PATCH - /lists/:list_id/items/:id
   def update
     @item = Item.find(params[:id])

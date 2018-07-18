@@ -13,11 +13,12 @@ class UsersController < ApplicationController
     elsif params[:user][:name] != "" || params[:user][:password] != ""
       @user = User.create(user_params)
       session[:user_id] = @user.id
-      redirect_to "/lists"
+      redirect_to lists_path
     else
       redirect_to "/users/signup"
       # redirect_to new_user_path
     end
+    # no route item because ite wasnt saved correctly
   end
 
   def show

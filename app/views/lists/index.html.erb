@@ -2,15 +2,14 @@
   <div class="container-fluid padding">
     <h1>Your Lists</h1>
     <%= form_for(@list) do |f| %>
-
-      <%= f.text_field :name, :class => "enter_new_item", :placeholder => (@list.errors.full_messages_for(:name).first || "enter a new item") %>
+      <%= f.text_field :name, :class => "enter_new_item", :placeholder =>
+      (@list.errors.full_messages_for(:name).first || "enter a new list") %>
       <%= f.submit :style => "display: none" %>
-
     <% end %>
   </form>
   </div>
   <section class="main">
-    <ul class="my-list">
+    <ul class="all-items-inlist">
       <% @lists.each do |list| %>
       <li>
         <div class="nav-link">
@@ -25,5 +24,6 @@
 
 <br>
 <div class="text-center">
-<button type="button" class="btn btn-primary btn-lg">Save Changes</button>
+  <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
 </div>
+<br><br>

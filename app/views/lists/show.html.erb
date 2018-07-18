@@ -1,19 +1,25 @@
+
 <section class="all">
   <div class="container-fluid padding">
     <h1><%= @list.name %></h1>
     <%= form_for([@list, @item]) do |f| %>
-    <div class="text-center">
-      <%= f.text_field :description, :class => "enter_new_item", :placeholder => (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
+      <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
+      (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
       <%= f.submit :style => "display: none" %>
-    </div>
+
     <% end %>
   </div>
   <section class="main">
-    <input class="toggle-all" type="checkbox">
-      <label for="toggle-all"></label>
-    <ul class="my-list">
-      <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
-    </ul>
+    <!-- <input class="toggle" type="checkbox"> -->
+
+      <ul class="all-items-inlist">
+        <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
+      </ul>
   </section>
 <hr>
 </section>
+
+<div class="text-center">
+  <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
+</div>
+<br><br>
