@@ -52160,3 +52160,2203 @@ Processing by StaticController#index as HTML
 Completed 200 OK in 43ms (Views: 42.7ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/users//lists" for 127.0.0.1 at 2018-07-20 13:50:45 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/tony/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"lists"}
+Redirected to http://localhost:3000/users/login
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-07-20 13:50:45 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (34.3ms)
+Completed 200 OK in 318ms (Views: 315.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/style.css" for 127.0.0.1 at 2018-07-20 13:50:46 -0400
+Processing by UsersController#show as CSS
+  Parameters: {"id"=>"style"}
+Redirected to http://localhost:3000/users/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-07-20 13:50:46 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 73ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2018-07-20 13:50:48 -0400
+Started GET "/auth/github" for 127.0.0.1 at 2018-07-20 13:50:48 -0400
+Started GET "/auth/github/callback?code=f0783bb301ea0e1045c7&state=a774baa77cfeb0c432b913f38cf5ff25610a043911084d07" for 127.0.0.1 at 2018-07-20 13:50:51 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"f0783bb301ea0e1045c7", "state"=>"a774baa77cfeb0c432b913f38cf5ff25610a043911084d07", "provider"=>"github"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "ho-tonym"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+Redirected to http://localhost:3000/users/5/lists
+Completed 302 Found in 19ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/lists" for 127.0.0.1 at 2018-07-20 13:50:51 -0400
+Processing by ListsController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:6
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (9.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 59ms (Views: 38.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/style.css" for 127.0.0.1 at 2018-07-20 13:50:51 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/5/style.css"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/users/5/lists" for 127.0.0.1 at 2018-07-20 13:50:58 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FxTQEukRXKa44vwFiqynA1vFbiJDgoRMKodWJ72CgT26X+my9eghQPD4W9WKvgx9aB7YxR3l7WSS65GKhMJW+A==", "list"=>{"name"=>"Amazon List"}, "commit"=>"Create List", "user_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[36mList Create (1.0ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Amazon List"], ["created_at", "2018-07-20 17:50:58.937011"], ["updated_at", "2018-07-20 17:50:58.937011"], ["user_id", 5]]
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 18ms (ActiveRecord: 2.5ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:50:58 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (72.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 174ms (Views: 134.1ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:50:59 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:51:03 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oP+7eMBLwN/hzTj43MeuGGhoKwcQPGTkNAJAB8VbGjQNtILY3LK9OanXnyjc1QVmW7Od4E5bDcyMboeq/BvN8Q==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ (pry):2
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ (pry):3
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ (pry):4
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (pry):5
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ (pry):5
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ (pry):5
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ (pry):6
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 282532ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:55:45 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (2.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (30.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 139ms (Views: 93.6ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:55:45 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:55:48 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3KHd1y86AXZ26WME4eOz7z7mC98/zrjk9XwmIJwe+Bdx6uR3M8N8kD7zxNTh8RiRDT29OGGp0cxNEOGNpV4v0g==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:13
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:17
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ (pry):11
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ (pry):12
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ (pry):14
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ (pry):14
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ (pry):14
+  [1m[36mListTag Create (0.5ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 14], ["list_id", 17], ["created_at", "2018-07-20 17:57:09.831949"], ["updated_at", "2018-07-20 17:57:09.831949"]]
+  ↳ (pry):14
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ (pry):14
+Completed 500 Internal Server Error in 142189ms (ActiveRecord: 9.1ms)
+
+
+  
+NameError (undefined local variable or method `found_tag' for #<TagsController:0x007f963c5951a8>
+Did you mean?  @found_tag):
+  
+app/controllers/tags_controller.rb:19:in `create'
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:15 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 11ms (ActiveRecord: 0.8ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:58:17 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3KHd1y86AXZ26WME4eOz7z7mC98/zrjk9XwmIJwe+Bdx6uR3M8N8kD7zxNTh8RiRDT29OGGp0cxNEOGNpV4v0g==", "tag"=>{"name"=>"1"}, "commit"=>"Create Tag", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (2.1ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 14], ["list_id", 17], ["created_at", "2018-07-20 17:58:17.435497"], ["updated_at", "2018-07-20 17:58:17.435497"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 53ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:58:17 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (19.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 79ms (Views: 62.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:17 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:58:19 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SUIpwMw9XkD6KYi16gYM36udqFl9OGvrpoOc47MJeenkCRBg0MQjprIzL2XqFKehmEYeviNfAsMe71tOikmuLA==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.5ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 14], ["list_id", 17], ["created_at", "2018-07-20 17:58:19.835682"], ["updated_at", "2018-07-20 17:58:19.835682"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 14ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:58:19 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 51ms (Views: 46.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:19 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:58:22 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mORz5kK1xKOFaqlGEshgXoWlzPXK45+Dol1OxPqaxIQ1r0pGXky5Rc1wDpYS2ssgtn56EpSE9qsaMYlpw9oTQQ==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.8ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 14], ["list_id", 17], ["created_at", "2018-07-20 17:58:22.048988"], ["updated_at", "2018-07-20 17:58:22.048988"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 16ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:58:22 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.1ms)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (14.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 56ms (Views: 48.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:22 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:58:23 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DG8Oya+SILB0p1em2krGc8zFbqsaOhj+SVe48LGGCuqhJDdps2tdVjy98HbaWG0N/x7YTERdcdbxO39diMbdLw==", "tag"=>{"name"=>"2"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.4ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 20], ["list_id", 17], ["created_at", "2018-07-20 17:58:23.889280"], ["updated_at", "2018-07-20 17:58:23.889280"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 14ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:58:23 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (12.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 53ms (Views: 48.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:23 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:58:25 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UWHh7Efsgh1/kaDy9a4qZ9LKg6BBrCtPbM4AUJt0yTX8KthMWxX/+zeLByL1vIEZ4RE1Rx/LQmfUosf9ojQe8A==", "tag"=>{"name"=>"2"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.6ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 20], ["list_id", 17], ["created_at", "2018-07-20 17:58:25.956015"], ["updated_at", "2018-07-20 17:58:25.956015"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 16ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 13:58:25 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 53ms (Views: 48.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 13:58:26 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 13:59:13 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M2OvjJmki156WHmysTqB/YiEW68i8cjZjX3dQqvv56ueKJYshV32uDJC3mKxKCqDu1/tSHyWofE1ERrvkq8wbg==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 2.2ms)
+
+
+  
+ArgumentError (You need to supply at least one attribute):
+  
+app/models/list_tag.rb:5:in `<class:ListTag>'
+app/models/list_tag.rb:1:in `<main>'
+app/controllers/tags_controller.rb:16:in `create'
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:04:48 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 8ms (ActiveRecord: 0.9ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 14:04:50 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"M2OvjJmki156WHmysTqB/YiEW68i8cjZjX3dQqvv56ueKJYshV32uDJC3mKxKCqDu1/tSHyWofE1ERrvkq8wbg==", "tag"=>{"name"=>"1"}, "commit"=>"Create Tag", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.3ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 14], ["list_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 49ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 14:04:51 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (25.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 107ms (Views: 85.1ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:04:51 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 14:04:52 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cxiadH1gP5UVngztw/fvJqf6qLq22Q+uBk8xhwWlhnzeU6PUYZlCc12Eqz3D5URYlCEeXei+Zoa+I/YqPOVRuQ==", "tag"=>{"name"=>""}, "commit"=>"Create Tag", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.3ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 4], ["list_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.5ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 4], ["list_id", 17], ["created_at", "2018-07-20 18:04:52.322467"], ["updated_at", "2018-07-20 18:04:52.322467"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 30ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 14:04:52 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (15.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 73ms (Views: 62.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:04:52 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/17/tags" for 127.0.0.1 at 2018-07-20 14:04:54 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iA/oyp/btlfO31Us40RFQ2UuwRY8503cjkfH32XRrmwlRNFqgyLLsYbF8vzjVu49VvV38WKAJPQ2KwByXJF5qQ==", "tag"=>{"name"=>"2"}, "button"=>"", "user_id"=>"5", "list_id"=>"17"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 17], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.2ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 20], ["list_id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/17
+Completed 302 Found in 10ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/17" for 127.0.0.1 at 2018-07-20 14:04:54 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"17"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 17]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (13.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 62ms (Views: 56.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:04:55 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started GET "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:04:59 -0400
+Processing by ListsController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:6
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (6.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 54ms (Views: 47.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:05:04 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lUU15tiObUmPEw/kMsGV4qV97K+6eXZ9boSG/sg+lzyRCIr3z/Byc2oSeYqrZOfG0dQePCKbGULK5GFv0DVBiQ==", "list"=>{"name"=>"Shipping List"}, "commit"=>"Create List", "user_id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[36mList Create (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "Shipping List"], ["created_at", "2018-07-20 18:05:04.944467"], ["updated_at", "2018-07-20 18:05:04.944467"], ["user_id", 5]]
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:04 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (12.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 69ms (Views: 61.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:05 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:06 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YQACPIdjEmtudeQ/i+wIiI4wky2rBnCWEgoVOvi0pYrMSzucm5pvjSZvQ++L/qP2veslyvVhGb6qZtKXwfRyTw==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.2ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 14], ["list_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (1.1ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 14], ["list_id", 18], ["created_at", "2018-07-20 18:05:06.864978"], ["updated_at", "2018-07-20 18:05:06.864978"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 19ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:06 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (10.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 49ms (Views: 45.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:06 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:08 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"98kEACcW0DJIoRZnaqryYO6H9uX9kPIC3lrIFwYdpCZagj2gO++t1AC7sbdquFke3VxAAqP3mypmNg+6P11z4w==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.4ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 14], ["list_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 11ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:08 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (13.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 49ms (Views: 45.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:08 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:09 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CJn8QBCb156iIo7Jo2mlbfwYvQuSFutREfEQ8oczZCil0sXgDGKqeOo4KRmjew4Tz8ML7MxxgnmpnddfvnOz7Q==", "tag"=>{"name"=>"2"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.2ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 20], ["list_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (1.2ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 20], ["list_id", 18], ["created_at", "2018-07-20 18:05:09.456793"], ["updated_at", "2018-07-20 18:05:09.456793"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 19ms (ActiveRecord: 4.3ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:09 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (10.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 55ms (Views: 48.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:09 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:10 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GENTeALlfj0WLQr3bFOwH85syIs8olEJoCiqfwD3M0K1CGrYHhwD2143rSdsQRth/bd+bGLFOCEYRG3SObfkhw==", "tag"=>{"name"=>"2"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.3ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 20], ["list_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:10 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (13.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:10 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:50 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rhhAQg1sumxh3QDU4DsI3DIp0+FIQu0X2mx6tL6UGc0DU3niEZXHiinHpwTgKaOiAfJlBhYlhD9iAL0Zh9TOCA==", "tag"=>{"name"=>" "}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:50 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (12.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 45ms (Views: 39.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:50 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:53 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"90UN2eXG790WcxW9KtP2fKNl8GsDmHvnMySAo6WxX1RaDjR5+T+SO15psm0qwV0CkL5GjF3/Es+LSEcOnPGIkQ==", "tag"=>{"name"=>" "}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:53 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (9.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 49ms (Views: 43.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:53 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:57 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AW3y4DBQq7eiB+LAW5oAzNRXSqXJEKv+rdkYVd8gTPasJstALKnWUeodRRBbiKuy54z8Qpd3wtYVtd/45mCbMw==", "tag"=>{"name"=>"1"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.3ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 14], ["list_id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 9ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:57 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (10.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 57ms (Views: 51.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:57 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:05:58 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rKKxEe+/ITGd9g7QYDNR2bdYFOVPMnYyFeC6MrOSTBsB6Yix80Zc19XsqQBgIfqnhIOiAhFVHxqtjH2fitKb3g==", "tag"=>{"name"=>"3"}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "3"], ["created_at", "2018-07-20 18:05:58.987641"], ["updated_at", "2018-07-20 18:05:58.987641"]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mListTag Create (0.5ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 22], ["list_id", 18], ["created_at", "2018-07-20 18:05:58.995391"], ["updated_at", "2018-07-20 18:05:58.995391"]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 17ms (ActiveRecord: 4.5ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:05:59 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (11.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 52ms (Views: 47.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:05:59 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/18/tags" for 127.0.0.1 at 2018-07-20 14:06:00 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VtFpIqPEJyKUHr3IIFHKvqZp3AthX6JSExA7xtyypgD7mlCCvz1axNwEGhggQ2HAlbJq7D84y3qrfPxr5fJxxQ==", "tag"=>{"name"=>" "}, "button"=>"", "user_id"=>"5", "list_id"=>"18"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 18], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", " "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+Redirected to http://localhost:3000/users/5/lists/18
+Completed 302 Found in 7ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/lists/18" for 127.0.0.1 at 2018-07-20 14:06:00 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"18"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 18]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 63ms (Views: 52.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:06:00 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started GET "/logout" for 127.0.0.1 at 2018-07-20 14:06:02 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-20 14:06:02 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 33ms (Views: 32.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-20 14:06:59 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/tony/.rvm/gems/ruby-2.3.3/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 322ms (Views: 314.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-07-20 14:07:00 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users//lists" for 127.0.0.1 at 2018-07-20 14:07:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"lists"}
+Redirected to http://localhost:3000/users/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-07-20 14:07:03 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 70ms (Views: 66.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-07-20 14:07:08 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"tuj9vabnhsNRFsd9REKN6llaD56T9RUYK9s9jBdsZnyWYT2rZPRo7ePYtr7Fqmd6gy8sP8cJC9lbKxoodOoZpQ==", "user"=>{"name"=>"tony", "password"=>"[FILTERED]"}, "commit"=>"Sign In"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:15
+Redirected to http://localhost:3000/users/signup
+Completed 302 Found in 18ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/signup" for 127.0.0.1 at 2018-07-20 14:07:08 -0400
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 103ms (Views: 94.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/style.css" for 127.0.0.1 at 2018-07-20 14:07:09 -0400
+Processing by UsersController#show as CSS
+  Parameters: {"id"=>"style"}
+Redirected to http://localhost:3000/users/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-07-20 14:07:09 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 143ms (Views: 139.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/signup" for 127.0.0.1 at 2018-07-20 14:07:12 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xYIhO364ExLPgBflAHXc7MeMXNNe+fwDtPtn6BS4LKhxq35KfAFCpXQ7Qyn/OvVF3q2YDX21aWDuhItT6Ae4IA==", "user"=>{"name"=>"tony", "password"=>"[FILTERED]"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:11
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "tony"], ["password_digest", "$2a$10$PJLgij/KXS0dVnvq54dSFu/MpjyiKhIVeq.FP0VvVIQkR4SZ40/ri"], ["created_at", "2018-07-20 18:07:12.477004"], ["updated_at", "2018-07-20 18:07:12.477004"]]
+  ↳ app/controllers/users_controller.rb:11
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:11
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "tony"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+Redirected to http://localhost:3000/
+Completed 302 Found in 91ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-20 14:07:12 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (1.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 96ms (Views: 94.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2018-07-20 14:07:12 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/logout" for 127.0.0.1 at 2018-07-20 14:07:15 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-20 14:07:15 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 61ms (Views: 60.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2018-07-20 14:07:18 -0400
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 62ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/github" for 127.0.0.1 at 2018-07-20 14:07:19 -0400
+Started GET "/auth/github" for 127.0.0.1 at 2018-07-20 14:07:19 -0400
+Started GET "/auth/github/callback?code=a1cdd547c7159bce61a2&state=b634bdf4f66ea36fda56e3ea365c068cd844ba34461f8703" for 127.0.0.1 at 2018-07-20 14:07:19 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"a1cdd547c7159bce61a2", "state"=>"b634bdf4f66ea36fda56e3ea365c068cd844ba34461f8703", "provider"=>"github"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["name", "ho-tonym"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+Redirected to http://localhost:3000/users/5/lists
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:07:20 -0400
+Processing by ListsController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:6
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (13.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 77ms (Views: 47.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/5/style.css" for 127.0.0.1 at 2018-07-20 14:07:20 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/users/5/style.css"):
+  
+actionpack (5.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.0) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.0) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.0) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.0) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:07:26 -0400
+Processing by ListsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0HGn9RIesqGBagBumCiBqgUqDpY7nnTz9s8HfILh+6fFOC3pN4xq4W21NFFuVqTMLfvj8bLtJyOEZWGZxZgMrA==", "list"=>{"name"=>"New List"}, "commit"=>"Create List", "user_id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:29
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[36mList Create (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["name", "New List"], ["created_at", "2018-07-20 18:07:26.993598"], ["updated_at", "2018-07-20 18:07:26.993598"], ["user_id", 5]]
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:30
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/lists_controller.rb:34
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:27 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (3.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (36.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 166ms (Views: 91.1ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:27 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started GET "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:07:30 -0400
+Processing by ListsController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:6
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (7.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 58ms (Views: 51.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:31 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (1.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  Rendered collection of items/_item_li.html.erb [0 times] (0.0ms)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (20.5ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 80ms (Views: 68.1ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/users/5/lists/19/items" for 127.0.0.1 at 2018-07-20 14:07:35 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BxKvT4+5PBIXgsYHi8lo46rnwL5qRCr3dnDLO4K/Nui4sjNIMJwZccjP8DEWVEVaFNB50jbXg7V2KBEwBbsryw==", "item"=>{"description"=>"Apples"}, "commit"=>"Create Item", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mItem Create (0.8ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Apples"], ["list_id", 19], ["created_at", "2018-07-20 18:07:35.302200"], ["updated_at", "2018-07-20 18:07:35.302200"]]
+  ↳ app/controllers/items_controller.rb:12
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13
+Redirected to http://localhost:3000/users/5/lists/19/items.18
+Completed 302 Found in 12ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/users/5/lists/19/items.18" for 127.0.0.1 at 2018-07-20 14:07:35 -0400
+Processing by ItemsController#index as 
+  Parameters: {"user_id"=>"5", "list_id"=>"19"}
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:35 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.4ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [1 times] (13.7ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (36.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 114ms (Views: 93.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:35 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 7ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/items" for 127.0.0.1 at 2018-07-20 14:07:38 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AeINtnhZ0tiMmCbxW7/LhNN6qGsxXTRGF138PqXGPNUUq4eqXcsKmGBHEs6twe7i+6tFDLguZ5Zl95rb4r/L3g==", "item"=>{"description"=>"Oranges"}, "commit"=>"Create Item", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mItem Create (0.5ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Oranges"], ["list_id", 19], ["created_at", "2018-07-20 18:07:38.379918"], ["updated_at", "2018-07-20 18:07:38.379918"]]
+  ↳ app/controllers/items_controller.rb:12
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13
+Redirected to http://localhost:3000/users/5/lists/19/items.19
+Completed 302 Found in 8ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/5/lists/19/items.19" for 127.0.0.1 at 2018-07-20 14:07:38 -0400
+Processing by ItemsController#index as 
+  Parameters: {"user_id"=>"5", "list_id"=>"19"}
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:38 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.3ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (4.4ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (18.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 62ms (Views: 56.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:38 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/items" for 127.0.0.1 at 2018-07-20 14:07:40 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n7zmugLEvtTLmWOXjwNQr0bc7uFsZoVO5wRXqHNuAZWK9WymJ1ZmlCdGV6h5fXXJbg0DhuUV1p6VrjFNNBf2ng==", "item"=>{"description"=>"Pears"}, "commit"=>"Create Item", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "Pears"], ["list_id", 19], ["created_at", "2018-07-20 18:07:40.691697"], ["updated_at", "2018-07-20 18:07:40.691697"]]
+  ↳ app/controllers/items_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:13
+Redirected to http://localhost:3000/users/5/lists/19/items.20
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/users/5/lists/19/items.20" for 127.0.0.1 at 2018-07-20 14:07:40 -0400
+Processing by ItemsController#index as 
+  Parameters: {"user_id"=>"5", "list_id"=>"19"}
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:40 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [3 times] (37.3ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (69.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 157ms (Views: 148.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:40 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started DELETE "/users/5/lists/19/items/18" for 127.0.0.1 at 2018-07-20 14:07:42 -0400
+Processing by ItemsController#destroy as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"x7isIo5JHyRmEYoCBQdWivz9epCP4/vLLOKywZR8xqvS8SY+q9vHZIrOvj3zeXPs1CyX9waQqBteSNQk0wUxoA==", "user_id"=>"5", "list_id"=>"19", "id"=>"18"}
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:31
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:32
+  [1m[36mItem Destroy (6.1ms)[0m  [1m[31mDELETE FROM "items" WHERE "items"."id" = ?[0m  [["id", 18]]
+  ↳ app/controllers/items_controller.rb:32
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:32
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:34
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:34
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 17ms (ActiveRecord: 8.4ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:42 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (4.4ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (15.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 60ms (Views: 55.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:43 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:07:47 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NwMPjgScj3OfLKiAF2gHLW4pRKQGkLI5YkgBOPZro00iSoWSIQ5XM3PznL/hFiJLRvipw4/j4ekQ4mfdsRJURg==", "tag"=>{"name"=>"urgent"}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "urgent"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Create (1.3ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "urgent"], ["created_at", "2018-07-20 18:07:47.231243"], ["updated_at", "2018-07-20 18:07:47.231243"]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mListTag Create (0.7ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 23], ["list_id", 19], ["created_at", "2018-07-20 18:07:47.264487"], ["updated_at", "2018-07-20 18:07:47.264487"]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 45ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:47 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (5.1ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (24.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 80ms (Views: 72.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:47 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:07:51 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nFTem/Nn9daW+ODSw81+pP3lXGwzN2ezp9A9ds8/UuOJHVSH1vUtlnon1O01s1vC1TSxC7pENGPVeluTiEal6A==", "tag"=>{"name"=>"not urgent"}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "not urgent"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Create (0.4ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "not urgent"], ["created_at", "2018-07-20 18:07:51.445272"], ["updated_at", "2018-07-20 18:07:51.445272"]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mListTag Create (0.4ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 24], ["list_id", 19], ["created_at", "2018-07-20 18:07:51.450938"], ["updated_at", "2018-07-20 18:07:51.450938"]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 13ms (ActiveRecord: 3.8ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:51 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (4.7ms)
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (18.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 67ms (Views: 59.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:51 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:07:55 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rwH5khUEpqmeLThTHBSE3M1bNmoTXl9m9qw1mcDd4QW6SHOOMJZ+6XLyDGzqaqG65YrbDZotDLaEBlN8h6QWDg==", "tag"=>{"name"=>"category"}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "category"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Create (0.5ms)[0m  [1m[32mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "category"], ["created_at", "2018-07-20 18:07:55.139963"], ["updated_at", "2018-07-20 18:07:55.139963"]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 25], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[36mListTag Create (0.3ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 25], ["list_id", 19], ["created_at", "2018-07-20 18:07:55.147679"], ["updated_at", "2018-07-20 18:07:55.147679"]]
+  ↳ app/controllers/tags_controller.rb:12
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:12
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 16ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:55 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (5.3ms)
+  [1m[36mTag Load (0.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (21.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 66ms (Views: 61.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:55 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 8ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:07:59 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"iu/D+uDA13jE/KC6F9lzSEMTmmFRyNUCp8V3BLDCzPyfpknmxVIPOCgjlIXhp1Yua8J3Bti7htLVbxHh97s79w==", "tag"=>{"name"=>"another tag"}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "another tag"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "another tag"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "another tag"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.2ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 10], ["list_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[36mListTag Create (0.4ms)[0m  [1m[32mINSERT INTO "list_tags" ("tag_id", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tag_id", 10], ["list_id", 19], ["created_at", "2018-07-20 18:07:59.244415"], ["updated_at", "2018-07-20 18:07:59.244415"]]
+  ↳ app/controllers/tags_controller.rb:16
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 18ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:07:59 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (5.5ms)
+  [1m[36mTag Load (0.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.7ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (19.9ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 58ms (Views: 53.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:07:59 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:08:02 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"05c/w4FlmOcibT6PEpDKj3Kt9Y8UlB+DVPq785LCfEDG3rXfpPdAp86yCrDk7u/pWnwY6J3nTFMmUN0W1buLSw==", "tag"=>{"name"=>"urgent"}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "urgent"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "urgent"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+  [1m[36mCACHE Tag Load (0.0ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "urgent"], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:15
+  [1m[36mListTag Load (0.2ms)[0m  [1m[34mSELECT  "list_tags".* FROM "list_tags" WHERE "list_tags"."tag_id" = ? AND "list_tags"."list_id" = ? LIMIT ?[0m  [["tag_id", 23], ["list_id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:16
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 8ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:08:02 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.2ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (5.0ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (14.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:08:03 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started POST "/users/5/lists/19/tags" for 127.0.0.1 at 2018-07-20 14:08:05 -0400
+Processing by TagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/EDbcX982R9Dxn+2husXn3wmu3k6HdJQsoXnPB+pzgnpCVFtWu4BX68ZS4lwlTL5VPdWHrNugYDAL4HZWNA5Ag==", "tag"=>{"name"=>"   "}, "button"=>"", "user_id"=>"5", "list_id"=>"19"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."id" IN (?, ?)[0m  [["id", 19], ["id", 5]]
+  ↳ app/controllers/tags_controller.rb:9
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "   "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/tags_controller.rb:11
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" WHERE "tags"."name" = ? LIMIT ?[0m  [["name", "   "], ["LIMIT", 1]]
+  ↳ app/controllers/tags_controller.rb:14
+Redirected to http://localhost:3000/users/5/lists/19
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/lists/19" for 127.0.0.1 at 2018-07-20 14:08:05 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"5", "id"=>"19"}
+  [1m[36mList Load (0.3ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:17
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:6
+  Rendered collection of items/_item_li.html.erb [2 times] (4.4ms)
+  [1m[36mTag Load (0.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:23
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 19]]
+  ↳ app/views/lists/show.html.erb:28
+  Rendered lists/show.html.erb within layouts/application (14.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 46ms (Views: 40.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5/lists/style.css" for 127.0.0.1 at 2018-07-20 14:08:05 -0400
+Processing by ListsController#show as CSS
+  Parameters: {"user_id"=>"5", "id"=>"style"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 0], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:14
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find List with 'id'=style):
+  
+app/controllers/lists_controller.rb:14:in `show'
+Started GET "/users/5/lists" for 127.0.0.1 at 2018-07-20 14:08:09 -0400
+Processing by ListsController#index as HTML
+  Parameters: {"user_id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:6
+  Rendering lists/index.html.erb within layouts/application
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists" WHERE "lists"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/views/lists/index.html.erb:16
+  Rendered lists/index.html.erb within layouts/application (6.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:14
+Completed 200 OK in 42ms (Views: 35.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2018-07-20 14:08:10 -0400
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-20 14:08:10 -0400
+Processing by StaticController#index as HTML
+  Rendering static/index.html.erb within layouts/application
+  Rendered static/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 30ms (Views: 29.4ms | ActiveRecord: 0.0ms)
+
+
