@@ -27,7 +27,7 @@
   				<a class="nav-link" href="/">Home</a>
   			</li>
         <li class="nav-item">
-          <a class="nav-link" href="/lists">My Lists</a>
+          <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
         </li>
   			<li class="nav-item">
   				<a class="nav-link" href="/users/signup">Sign Up</a>
@@ -38,9 +38,13 @@
         <li class="nav-item">
   				<a class="nav-link" href="/logout">Log Out</a>
   			</li>
+        <%if logged_in? %>
         <li class="nav-item">
-          <a class="nav-link" href="#">session id: <%=session[:user_id]%></a>
+          <a class="nav-link" href="#">
+             Hello <%= current_user_name %>!
+          </a>
         </li>
+        <% end %>
   	</div>
   </div>
   </nav>

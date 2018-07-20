@@ -1,14 +1,17 @@
 <li class="<%"completed" if item.complete?%>">
   <div class="item-text">
     <div class="row">
-    <%= form_for([@list, item]) do |f| %>
+<!-- checkbox, submit -->
+
+    <%= form_for [@list, item], :url => user_list_item_path(@list.user, @list, item) do |f| %>
       <%= f.check_box :status, :class => "col-offset-2", :checked => item.complete? %>
-      <%= f.submit %>
+      <!-- <%= f.submit %> -->
     <% end %>
 
-<!-- div class="col-xs-12 col-sm-6 col-md-4"> -->
+<!-- description -->
   <label class="col"><%= item.description %></label>
-    <%= form_tag(list_item_path(item.list, item), :method => :delete) do %>
+      <!-- "/users/1/lists/1/items/2" -->
+    <%= form_tag(user_list_item_path(item.list.user,item.list, item), :method => :delete) do %>
       <button type="submit" class="col-destroy">X</button>
     <%end%>
   </div>

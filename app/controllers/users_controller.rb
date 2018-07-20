@@ -7,13 +7,11 @@ class UsersController < ApplicationController
   end
 
   def create
-
-    if User.find_by(:name => params[:user][:name])
-      redirect_to "/users/signup"
-    elsif params[:user][:name] != "" || params[:user][:password] != ""
-      @user = User.create(user_params)
+    # binding.pry
+    @user = User.create(user_params)
+    if User.find_by(:name => params[:user][:name]) || @user.valid?
       session[:user_id] = @user.id
-      redirect_to lists_path
+      redirect_to "/" #redirrect to user showpage
     else
       redirect_to "/users/signup"
       # redirect_to new_user_path

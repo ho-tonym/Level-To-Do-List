@@ -1,24 +1,45 @@
+<!-- <%flash[:error] = @item.errors.full_messages%>
+ -->
 
 <section class="all">
   <div class="container-fluid padding">
     <h1><%= @list.name %></h1>
-    <%= form_for([@list, @item]) do |f| %>
+      <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
       <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
       (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
       <%= f.submit :style => "display: none" %>
-
     <% end %>
   </div>
   <section class="main">
     <!-- <input class="toggle" type="checkbox"> -->
-
       <ul class="all-items-inlist">
+        <!-- checkbox, submit -->
         <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
       </ul>
   </section>
 <hr>
 </section>
 
+<!-- <%Tag.all.each do |t| %>
+<input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>">
+  <label for="tag_id_<%=t.id%>" ><%= t.name %></label>
+<%end %> -->
+<div class="col">
+<%@tags.each do |t| %>
+<!-- <input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>"> -->
+  <label for="tag_id_<%=t.id%>" >◙ <%= t.name %> </label>
+<%end %>
+<br><br>
+
+Enter a new Tag for this List:
+<br><br>
+  <%= form_for @tag, :url => user_list_tags_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
+  <%= f.text_field :name %>
+    <%= button_tag :class => "btn btn-primary btn-sm" do %>
+    <%= f.submit "Create Tag", :class => "ignore"%>
+    <% end %>
+<% end %>
+</div>
 <div class="text-center">
   <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
 </div>
