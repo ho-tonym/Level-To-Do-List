@@ -6,35 +6,29 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env["omniauth.auth"]
-      oauth_email = auth_hash["info"]["email"]
-      oatuh_nickname = auth_hash["info"]["nickname"]
-      if @user = User.find_by(:email => oauth_email)
-        session[:user_id] = @user.id
-        redirect_to "/users/#{@user.id}/lists"
-      else
-        @user = User.new(:email => oauth_email, :password => SecureRandom.hex)
-        if @user.save
-          session[:user_id] = @user.id
-          redirect_to "/users/#{@user.id}/lists"
-        else
-
-        end
-      end
+      @user = User.find_or_create_by_omniauth(auth_hash)
+      session[:user_id] = @user.id
+      redirect_to "/users/#{@user.id}/lists"
+      return
     end
 
-
-    @user = User.find_by(name: params[:user][:name])
-    if @user && @user.authenticate(params[:user][:password])
-
+    @user = User.find_by(name: params[:name])
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      # redirect_to user_path(@user)
       redirect_to "/users/#{@user.id}/lists"
     else
-      # render :new
-      # redirect_to "/users/login"
       redirect_to "/users/signup"
     end
   end
+  # def create
+  #   binding.pry
+  #   @user = User.find_or_create_by(uid: request.env['omniauth.auth']['uid']) do |u|
+  #     u.name = request.env['omniauth.auth']['info']['name']
+  #     # u.email = request.env['omniauth.auth']['info']['email']
+  #   end
+  #   session[:user_id] = @user.id
+  #   render 'welcome/home'
+  # end
 
   def destroy
     session.clear
