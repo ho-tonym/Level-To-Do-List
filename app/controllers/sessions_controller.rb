@@ -5,6 +5,24 @@ class SessionsController < ApplicationController
   end
 
   def create
+    if auth_hash = request.env["omniauth.auth"]
+      oauth_email = auth_hash["info"]["email"]
+      oatuh_nickname = auth_hash["info"]["nickname"]
+      if @user = User.find_by(:email => oauth_email)
+        session[:user_id] = @user.id
+        redirect_to "/users/#{@user.id}/lists"
+      else
+        @user = User.new(:email => oauth_email, :password => SecureRandom.hex)
+        if @user.save
+          session[:user_id] = @user.id
+          redirect_to "/users/#{@user.id}/lists"
+        else
+
+        end
+      end
+    end
+
+
     @user = User.find_by(name: params[:user][:name])
     if @user && @user.authenticate(params[:user][:password])
 
