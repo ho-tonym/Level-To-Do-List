@@ -2,10 +2,6 @@ class ListsController < ApplicationController
   # skip_before_action :require_login, only: [:index]
   before_action  :require_logged_in
 
-  def time
-    raise params.inspect
-  end
-
   def index
     if @user = User.find_by(id: session[:user_id])
       @list = List.new # item for form to wrap around
@@ -16,18 +12,11 @@ class ListsController < ApplicationController
   end
 
   def show
-
-    @list = List.find(params[:id])
+    # binding.pry
+    @list = List.find_by(id: params[:id])
     @item = Item.new #item, tag are empty but set up for form_for tag to wrap around
     @tag = Tag.new
-    # @user = User.find(1)
-    # @list.tags
     @tags = @list.tags
-    # @list_tags = ListTag.where(list_id: @list.id)
-    # @tags = Tag.where(id: @list_tags.tag_id)
-    # @list_tags
-    # # binding.pry
-    # 10 - tag id
   end
 
   def create
@@ -44,7 +33,6 @@ class ListsController < ApplicationController
       @lists = @user.lists
       render :index
     end
-    # binding.pry
   end
 
   private

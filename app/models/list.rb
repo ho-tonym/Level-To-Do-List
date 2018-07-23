@@ -6,13 +6,18 @@ class List < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  def self.my_users_items(userid)
-    # binding.pry
+  def self.my_users_items(userid)    #return all items associated with that user
     list = List.all.where(user_id: userid)
-    #query Lists to find all the lists associated with user_id:3
+    list.each do |list|
+      list.items
+    end
+  end
+
+  #return all the user items
+  def self.my_users_items(userid)
+    list = List.all.where(user_id: userid)
     list.map do |list|
       list.items
     end
-    #return all items associated with that user
   end
 end

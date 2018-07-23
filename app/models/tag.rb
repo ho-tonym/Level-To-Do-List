@@ -3,4 +3,10 @@ class Tag < ActiveRecord::Base
   has_many :lists, through: :list_tags
 
   validates :name, :presence => true, uniqueness: true
+
+  def date=(date)
+  end
+
+  def date
+  end
 end

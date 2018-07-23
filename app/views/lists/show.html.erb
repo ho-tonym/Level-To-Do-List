@@ -1,12 +1,9 @@
-<!-- <%flash[:error] = @item.errors.full_messages%>
- -->
-
+<!-- <%flash[:error] = @item.errors.full_messages%>-->
 <section class="all">
   <div class="container-fluid padding">
     <h1><%= @list.name %></h1>
       <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
-      <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
-      (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
+      <%= f.text_field :description, :class => "enter_new_item", :placeholder => "enter a new item..." %>
       <%= f.submit :style => "display: none" %>
     <% end %>
   </div>
@@ -18,22 +15,25 @@
   </section>
 <hr>
 </section>
-
 <!-- <%Tag.all.each do |t| %>
 <input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>">
   <label for="tag_id_<%=t.id%>" ><%= t.name %></label>
 <%end %> -->
-<div class="col">
-<%@tags.each do |t| %>
-<!-- <input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>"> -->
-  <label for="tag_id_<%=t.id%>" >◙ <%= t.name %> </label>
-<%end %>
+<div>
+  <%@tags.each do |t| %>
+    <label for="tag_id_<%=t.id%>" >◙ <%= t.name %> </label>
+      <%lt = ListTag.find(t.id)%>
+      <% if lt.date %>
+          date: <%= lt.date %>
+      <%end %>
+  <%end%>
 <br><br>
 
 Enter a new Tag for this List:
 <br><br>
   <%= form_for @tag, :url => user_list_tags_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, :placeholder => "tag name"%>
+  <%= f.text_field :date, :placeholder => "date (optional)" %>
     <%= button_tag :class => "btn btn-primary btn-sm" do %>
     <%= f.submit "Create Tag", :class => "ignore"%>
     <% end %>

@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
 
+  def items
+    user = User.find_by(id: params[:id])
+    @user_items = List.my_users_items(user.id).flatten
+  end
+
+  def date
+    raise params.inspect
+  end
+
   def new
-    # if logged_in?
-    #   redirect "/users/#{@user.id}/lists"
-    # end
   end
 
   def create
-    # binding.pry
     @user = User.create(user_params)
-    if User.find_by(:name => params[:user][:name]) || @user.valid?
+    if User.find_by(name: params[:user][:name]) || @user.valid?
       session[:user_id] = @user.id
       redirect_to "/" #redirrect to user showpage
     else
@@ -25,9 +30,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def time
-    
-  end
 
   private
 
