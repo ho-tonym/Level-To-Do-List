@@ -6,19 +6,15 @@
       <!-- create a new list -->
       <%= f.submit :style => "display: none" %>
     <% end %>
-
-
-  </form>
   </div>
+
   <section class="main">
     <ul class="all-items-inlist">
-
       <% @lists.each do |list| %>
       <li>
         <div class="nav-link">
 <!-- show all the lists -->
 <!-- list.errors.full_messages.first -->
-
           <label><%= link_to list.name, user_list_path(id: list.id) %></label>
         </div>
       </li>

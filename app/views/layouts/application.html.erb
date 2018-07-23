@@ -29,12 +29,14 @@
         <li class="nav-item">
           <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
         </li>
+        <%if !logged_in? %>
   			<li class="nav-item">
   				<a class="nav-link" href="/users/signup">Sign Up</a>
   			</li>
   			<li class="nav-item">
   				<a class="nav-link" href="/users/login">Log in</a>
   			</li>
+        <%end%>
         <%if logged_in? %>
         <li class="nav-item">
           <a class="nav-link" href="/logout">Log Out</a>

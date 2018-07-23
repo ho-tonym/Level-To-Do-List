@@ -1,7 +1,11 @@
 class ListsController < ApplicationController
   # skip_before_action :require_login, only: [:index]
+  before_action  :require_logged_in
 
-  # before_action  :require_logged_in
+  def time
+    raise params.inspect
+  end
+
   def index
     if @user = User.find_by(id: session[:user_id])
       @list = List.new # item for form to wrap around

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post '/users/signup' => 'users#create'
   get '/logout' => 'sessions#destroy'
 
+  # get '/users/time' => 'users#time'
   resources :users, except: [:new, :create] do
     resources :lists do
       resources :items

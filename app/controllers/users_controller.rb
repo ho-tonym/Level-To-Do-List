@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def time
+    
+  end
+
   private
 
   def user_params
