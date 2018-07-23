@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TodoMvcLv</title>
+  <title>Generic To do List</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -14,7 +14,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
-	<link href="style.css" rel="stylesheet">
+	<%= stylesheet_link_tag 'application' %>
 
 </head>
 <body>
@@ -35,13 +35,18 @@
   			<li class="nav-item">
   				<a class="nav-link" href="/users/login">Log in</a>
   			</li>
-        <li class="nav-item">
-  				<a class="nav-link" href="/logout">Log Out</a>
-  			</li>
         <%if logged_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Log Out</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
              Hello <%= current_user_name %>!
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+             Level: <%= current_user_level %>
           </a>
         </li>
         <% end %>

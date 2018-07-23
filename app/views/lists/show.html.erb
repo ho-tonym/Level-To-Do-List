@@ -13,7 +13,6 @@
   <section class="main">
     <!-- <input class="toggle" type="checkbox"> -->
       <ul class="all-items-inlist">
-        <!-- checkbox, submit -->
         <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
       </ul>
   </section>
@@ -40,7 +39,7 @@ Enter a new Tag for this List:
     <% end %>
 <% end %>
 </div>
-<div class="text-center">
+<!-- <div class="text-center">
   <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
-</div>
+</div> -->
 <br><br>

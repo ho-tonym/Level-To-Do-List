@@ -3,10 +3,12 @@ class ListsController < ApplicationController
 
   # before_action  :require_logged_in
   def index
-    @user = User.find_by(id: session[:user_id])
-    @list = List.new # item for form to wrap around
-    @lists = @user.lists
-    # render 'lists/index.html.erb'
+    if @user = User.find_by(id: session[:user_id])
+      @list = List.new # item for form to wrap around
+      @lists = @user.lists
+    else
+      redirect_to "/users/login"
+    end
   end
 
   def show

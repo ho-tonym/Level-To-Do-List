@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     if !@user
       redirect_to "/users/login"
     end
-
   end
 
   private

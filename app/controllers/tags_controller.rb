@@ -8,15 +8,15 @@ class TagsController < ApplicationController
     # binding.pry
     @list = List.find(params[:list_id], params[:user_id])# has user_id
     @tag = Tag.new(tag_params)
-    if @tag.save # can be saved(new)
+    # @tag = @list.tags.build(tag_params)
+    if @tag.save
       @list_tag = ListTag.create(tag_id: @tag.id, list_id: params[:list_id])
-      redirect_to "/users/#{params[:user_id]}/lists/#{params[:list_id]}"
-    elsif !!(Tag.find_by(tag_params))#(cant be saved, but it exists)
-      @found_tag = Tag.find_by(tag_params)
-      @list_tag = ListTag.find_or_create_by(tag_id: @found_tag.id, list_id: params[:list_id])
+      # @list_tag.save
       redirect_to "/users/#{params[:user_id]}/lists/#{params[:list_id]}"
     else
-      redirect_to "/users/#{params[:user_id]}/lists/#{params[:list_id]}"
+      # binding.pry
+        redirect_to "/users/#{params[:user_id]}/lists/#{params[:list_id]}"
+      # render "lists/show"
     end
   end
 

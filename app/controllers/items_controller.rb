@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
   # before_action  :require_logged_in
   def index
-
     redirect_to "/users/#{params[:user_id]}/lists/#{params[:list_id]}"
-
   end
 
   def create
@@ -12,7 +10,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to user_list_items_path(@list.user, @list, @item)
     else
-      render "lists/show"
+      redirect_to user_list_path(@list.user, @list)
     end
   end
 
@@ -27,8 +25,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-
     @item = Item.find(params[:id])
+    newlevel = @item.list.user.level +=1
+
+    @item.list.user.update_attribute(:level, newlevel)
     @item.destroy
 
     redirect_to user_list_path(@item.list.user ,@item.list)
