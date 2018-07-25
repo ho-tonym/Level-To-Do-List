@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
       # render somethings that just has the LI I want
       # why not just create a comments/show view that shows the LI of one comment
       render 'items/show', :layout => false
+      # render user_list_path(@list.user, @list)
     else
       render user_list_path(@list.user, @list)
     end

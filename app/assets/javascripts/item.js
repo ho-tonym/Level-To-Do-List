@@ -1,7 +1,7 @@
 $(function(){
   $("#enter_new_item").submit(function(event) {
     $.ajax({
-      type: ($("input[name='_method']").val() || this.method),
+      type: "POST",
       url: this.action,
       data: $(this).serialize(),
 
