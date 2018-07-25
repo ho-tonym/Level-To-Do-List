@@ -65566,3 +65566,146 @@ Processing by ItemsController#create as */*
 Completed 200 OK in 33ms (Views: 26.2ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/users/3/lists/8" for 127.0.0.1 at 2018-07-25 13:14:19 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"3", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:20
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:4
+  Rendered collection of items/_item_li.html.erb [7 times] (3.1ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:20
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:25
+  Rendered lists/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 98ms (Views: 93.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/users/3/lists/8/items" for 127.0.0.1 at 2018-07-25 13:14:22 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1q4hwjgg8KbhPbtUX/iiv57bqorPkNQMNM4OoxK0qHN9rAbdg1lSQjloFQIcpIP7xC+axQpCHU4Y2eAjU67tSg==", "item"=>{"description"=>"9"}, "commit"=>"Create Item", "user_id"=>"3", "list_id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:8
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  [1m[36mItem Create (1.1ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "9"], ["list_id", 8], ["created_at", "2018-07-25 17:14:22.193738"], ["updated_at", "2018-07-25 17:14:22.193738"]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  Rendering items/show.html.erb
+  Rendered items/show.html.erb (0.8ms)
+Completed 200 OK in 12ms (Views: 4.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/3/lists/8" for 127.0.0.1 at 2018-07-25 13:14:26 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"3", "id"=>"8"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:20
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:14
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:4
+  Rendered collection of items/_item_li.html.erb [8 times] (2.8ms)
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:20
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:25
+  Rendered lists/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 42ms (Views: 37.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/3/lists/8/items" for 127.0.0.1 at 2018-07-25 13:14:29 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0T/wOeN2zIB+T3Z9F6uoBEr04KIczJhiWLJe2/qWT/wRtjfXPR51tmsk4+3Ao/kS9/jzU2h+yOldSf7LvAcBg==", "item"=>{"description"=>"9"}, "commit"=>"Create Item", "user_id"=>"3", "list_id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "9"], ["list_id", 8], ["created_at", "2018-07-25 17:14:29.606473"], ["updated_at", "2018-07-25 17:14:29.606473"]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  Rendering items/show.html.erb
+  Rendered items/show.html.erb (0.6ms)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/3/lists/8/items" for 127.0.0.1 at 2018-07-25 13:14:58 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0T/wOeN2zIB+T3Z9F6uoBEr04KIczJhiWLJe2/qWT/wRtjfXPR51tmsk4+3Ao/kS9/jzU2h+yOldSf7LvAcBg==", "item"=>{"description"=>"9"}, "commit"=>"Create Item", "user_id"=>"3", "list_id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "9"], ["list_id", 8], ["created_at", "2018-07-25 17:14:58.972779"], ["updated_at", "2018-07-25 17:14:58.972779"]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  Rendering items/show.html.erb
+  Rendered items/show.html.erb (0.4ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/users/3/lists/8/items" for 127.0.0.1 at 2018-07-25 13:15:00 -0400
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"W0T/wOeN2zIB+T3Z9F6uoBEr04KIczJhiWLJe2/qWT/wRtjfXPR51tmsk4+3Ao/kS9/jzU2h+yOldSf7LvAcBg==", "item"=>{"description"=>"9"}, "commit"=>"Create Item", "user_id"=>"3", "list_id"=>"8"}
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  [1m[36mItem Create (0.4ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "9"], ["list_id", 8], ["created_at", "2018-07-25 17:15:00.217192"], ["updated_at", "2018-07-25 17:15:00.217192"]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  Rendering items/show.html.erb
+  Rendered items/show.html.erb (0.4ms)
+Completed 200 OK in 13ms (Views: 2.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/3/lists/8" for 127.0.0.1 at 2018-07-25 13:15:02 -0400
+Processing by ListsController#show as HTML
+  Parameters: {"user_id"=>"3", "id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/lists_controller.rb:20
+  Rendering lists/show.html.erb within layouts/application
+  [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:14
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/items/_item_li.html.erb:4
+  Rendered collection of items/_item_li.html.erb [11 times] (3.8ms)
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags"[0m
+  ↳ app/views/lists/show.html.erb:20
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "list_tags" ON "tags"."id" = "list_tags"."tag_id" WHERE "list_tags"."list_id" = ?[0m  [["list_id", 8]]
+  ↳ app/views/lists/show.html.erb:25
+  Rendered lists/show.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 107ms (Views: 101.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users/3/lists/8/items" for 127.0.0.1 at 2018-07-25 13:15:05 -0400
+Processing by ItemsController#create as */*
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"oQASradhybvz1FzWl/WLWbIsdO8Qaa35DDcVrbiH5sgKAjWyHBhrXyuB8oDUqaod6NhEoNW7ZLsgIPst+Z2j8Q==", "item"=>{"description"=>"10"}, "user_id"=>"3", "list_id"=>"8"}
+  [1m[36mList Load (0.1ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/items_controller.rb:8
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  [1m[36mItem Create (0.3ms)[0m  [1m[32mINSERT INTO "items" ("description", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "10"], ["list_id", 8], ["created_at", "2018-07-25 17:15:05.827140"], ["updated_at", "2018-07-25 17:15:05.827140"]]
+  ↳ app/controllers/items_controller.rb:10
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/items_controller.rb:10
+  Rendering items/show.html.erb
+  Rendered items/show.html.erb (0.3ms)
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 1.4ms)
+
+
