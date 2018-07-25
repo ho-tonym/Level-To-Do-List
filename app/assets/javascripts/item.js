@@ -1,9 +1,10 @@
 $(function(){
   $("#enter_new_item").submit(function(event) {
     $.ajax({
-      method: "POST",
+      type: ($("input[name='_method']").val() || this.method),
       url: this.action,
       data: $(this).serialize(),
+
       success: function(response){
         $('.enter_new_item').val("")
         let $div = $("div.all-items-inlist")
