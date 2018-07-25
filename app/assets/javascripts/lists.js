@@ -29,13 +29,40 @@
 
 // $(document).ready(function(){
 //   $("#enter_new_item").submit(function( event ) {
+//     debugger;
 //     alert( "Handler for .submit() called." );
 //     event.preventDefault();
 //   });
 // });
 $(function(){
-  $("#enter_new_item").submit(function( event ) {
-    alert( "Handler for .submit() called." );
+  $("#enter_new_item").submit(function(event) {
+
+    url = this.action
+    data = {
+      'authenticity_token': $("input[name='authenticity_token']").attr("value"),
+      'item':{
+        'content': $('.enter_new_item').val()
+      }
+    }
+    // data =
+
+    $.ajax({
+      method: "POST",
+      url: url,
+      data: data,
+      success: function(response){
+        console.log(data);
+    }})
+    console.log(data);
+    // alert( "Handler for .submit() called." );
+
+    // .done(function(data){
+    //   console.log(data)
+    // })
+
+    // .error(function(notNeeded){
+    //   alert("we broke")
+    // });
     event.preventDefault();
   });
 });
