@@ -1,10 +1,8 @@
-<!-- <%flash[:error] = @item.errors.full_messages%>
- -->
-
+<!-- <%flash[:error] = @item.errors.full_messages%>-->
 <section class="all">
   <div class="container-fluid padding">
     <h1><%= @list.name %></h1>
-      <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
+      <%= form_for [@list, @item], html: {:id => "enter_new_item"} , :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
       <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
       (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
       <%= f.submit :style => "display: none" %>
@@ -43,3 +41,6 @@ Enter a new Tag for this List:
   <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
 </div> -->
 <br><br>
+
+<%= link_to "test", user_lists_path(@list.user, @list), class: "bg-info"%>
+<script type='list/javascript'>

@@ -23,3 +23,19 @@
 // $(".pages.contact").click(function() {
 //   console.log("only runs on the contact page!")
 // })
+
+// enter_new_item, new_list
+
+
+// $(document).ready(function(){
+//   $("#enter_new_item").submit(function( event ) {
+//     alert( "Handler for .submit() called." );
+//     event.preventDefault();
+//   });
+// });
+$(function(){
+  $("#enter_new_item").submit(function( event ) {
+    alert( "Handler for .submit() called." );
+    event.preventDefault();
+  });
+});
