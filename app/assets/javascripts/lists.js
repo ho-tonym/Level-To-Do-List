@@ -38,22 +38,22 @@ $(function(){
   $("#enter_new_item").submit(function(event) {
 
     url = this.action
+    //the data sent has to match the controller allows params + db table
     data = {
       'authenticity_token': $("input[name='authenticity_token']").attr("value"),
       'item':{
-        'content': $('.enter_new_item').val()
+        'description': $('.enter_new_item').val()
       }
     }
-    // data =
 
     $.ajax({
       method: "POST",
       url: url,
       data: data,
       success: function(response){
-        console.log(data);
+        let $div = $("div.all-items-inlist")
+        $div.append(response);
     }})
-    console.log(data);
     // alert( "Handler for .submit() called." );
 
     // .done(function(data){

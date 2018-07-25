@@ -1,10 +1,8 @@
 <div class="item-text">
-    <div class="row">
-<!-- description -->
-  <label class="col"><%= item.description %></label>
-      <!-- "/users/1/lists/1/items/2" -->
-    <%= form_tag(user_list_item_path(item.list.user,item.list, item), :method => :delete) do %>
-      <button type="submit" class="col-destroy">X</button>
-    <%end%>
+  <div class="row">
+    <label class="col"><%= item.description %></label>
+      <%= form_tag(user_list_item_path(item.list.user,item.list, item), :method => :delete) do %>
+        <button type="submit" class="col-destroy">X</button>
+      <%end%>
   </div>
 </div>

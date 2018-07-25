@@ -8,9 +8,11 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
-      redirect_to user_list_items_path(@list.user, @list, @item)
+      # render somethings that just has the LI I want
+      # why not just create a comments/show view that shows the LI of one comment
+      render 'items/show', :layout => false
     else
-      redirect_to user_list_path(@list.user, @list)
+      render user_list_path(@list.user, @list)
     end
   end
 
