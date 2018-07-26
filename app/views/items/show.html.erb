@@ -1,8 +1,1 @@
-<div class="item-text">
-  <div class="row">
-    <label class="col"><%= @item.description %></label>
-      <%= form_tag(user_list_item_path(@item.list.user, @item.list, @item), :method => :delete) do %>
-        <button type="submit" class="col-destroy">X</button>
-      <%end%>
-  </div>
-</div>
+<%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
