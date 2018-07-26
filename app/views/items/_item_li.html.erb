@@ -1,4 +1,4 @@
-<div class="item-text">
+<div class="item-text" id ="<%='item-text' + item.id.to_s %>">
   <div class="row">
     <label class="col"><%= item.description %></label>
       <%= form_tag(user_list_item_path(item.list.user,item.list, item), :method => :delete, :class => "destroy_button" ) do %>

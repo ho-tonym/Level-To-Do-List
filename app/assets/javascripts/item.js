@@ -28,8 +28,10 @@ $(function(){
       url: this.action,
       data: $(this).serialize(),
 
-      success: function(response){
-        console.log("deleted")
+      success: function(json){
+      // $(item_text+this.id).remove();
+      // item-text53
+      // "<%='item-text' + item.id.to_s %>"
     }})
   });
 });
