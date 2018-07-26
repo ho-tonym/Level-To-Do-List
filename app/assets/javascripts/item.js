@@ -22,8 +22,15 @@ $(function(){
 // destroy_button
 $(function(){
   $("form.destroy_button").submit(function(event) {
-    
     event.preventDefault();
+    $.ajax({
+      type: "DELETE",
+      url: this.action,
+      data: $(this).serialize(),
+
+      success: function(response){
+        console.log("deleted")
+    }})
   });
 });
 

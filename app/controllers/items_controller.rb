@@ -29,12 +29,13 @@ class ItemsController < ApplicationController
 
   def destroy
     @item = Item.find(params[:id])
-    newlevel = @item.list.user.level +=1
-
+    newlevel = @item.list.user.level += 1
     @item.list.user.update_attribute(:level, newlevel)
     @item.destroy
-
-    redirect_to user_list_path(@item.list.user ,@item.list)
+    respond_to do |f|
+      f.json{render :json => @item}
+      f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
+    end
   end
 
   private
