@@ -8,14 +8,17 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
-      # render somethings that just has the LI I want
-      # why not just create a comments/show view that shows the LI of one comment
       render 'items/show', :layout => false
-      # render user_list_path(@list.user, @list)
+      # respond_to do |f|
+      #   f.json{render :json => @item}
+      #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
+      # end
     else
+      #instead of rendering it again, throw an error
       render user_list_path(@list.user, @list)
     end
   end
+
 
   # for changing status of complete/na
   # PATCH - /lists/:list_id/items/:id
