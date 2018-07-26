@@ -29,9 +29,7 @@ $(function(){
       data: $(this).serialize(),
 
       success: function(json){
-      // $(item_text+this.id).remove();
-      // item-text53
-      // "<%='item-text' + item.id.to_s %>"
+      $("div#item-text"+json.id).remove();
     }})
   });
 });
