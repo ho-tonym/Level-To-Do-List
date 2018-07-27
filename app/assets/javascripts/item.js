@@ -3,19 +3,19 @@ class Item{
   constructor(attributes){
     this.description = attributes.description;
     this.id = attributes.id;
-    console.log("itemcreate")
   }
-  //like prototypes, instance methods
-  //static method - like class methods
-  // static template(){
-  //   $('.enter_new_item').val("")
-  //   let source = $("#item-template").html()
-  //   let template= Handlebars.compile(source);
-  //   console.log(template)
-  // }
-  // renderLI = function(){
-  //   return Item.template(this)
-  // }
+
+  static itemCreate(item){
+    let templateFunction = Item.template(item);
+    let result = templateFunction(item)
+    $("div.all-items-inlist").append(result);
+  }
+
+  static template(){
+    $('.enter_new_item').val("")
+    let source = $("#item-template").html()
+    return Handlebars.compile(source);
+  }
 }
 
 $(function(){
@@ -29,16 +29,24 @@ $(function(){
       dataType: "json",
 
       success: function(json){
-        // debugger
-      // description: json.description, id: json.id
-      $('.enter_new_item').val("")
-      item = new Item(json);
-      source = $("#item-template").html()
-      template= Handlebars.compile(source);
-      result = template(item);
-      $("div.all-items-inlist").append(result);
+        item = new Item(json);
+        Item.itemCreate(item);
     }})
   });
+});
+
+$(function(){
+  $("div.all-items-inlist").on("submit", "form.destroy_button", function(event) {
+    event.preventDefault();
+    $.ajax({
+      type: "DELETE",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response){
+        $("div#item-text"+response.id).remove();
+      }
+    })
+  })
 });
 
 /////////////no handlebars//////////////
@@ -82,16 +90,3 @@ $(function(){
 // });
 
 //when you first arrive on the list show page, when you create a new item on that list, it will show the html
-$(function(){
-  $("div.all-items-inlist").on("submit", "form.destroy_button", function(event) {
-    event.preventDefault();
-    $.ajax({
-      type: "DELETE",
-      url: this.action,
-      data: $(this).serialize(),
-      success: function(response){
-        $("div#item-text"+response.id).remove();
-      }
-    })
-  })
-});
