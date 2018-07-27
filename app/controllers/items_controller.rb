@@ -9,12 +9,11 @@ class ItemsController < ApplicationController
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
-      render json: @item
       # render 'items/show', :layout => false
-      # respond_to do |f|
-      #   f.json{render :json => @item}
-      #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
-      # end
+      respond_to do |f|
+        f.json{render :json => @item}
+        f.html{redirect_to user_list_path(@item.list.user,@item.list)}
+      end
     else
       #instead of rendering it again, throw an error
       render user_list_path(@list.user, @list)

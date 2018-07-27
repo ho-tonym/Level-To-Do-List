@@ -17,13 +17,8 @@
 <hr>
 </section>
 
-<!-- <%Tag.all.each do |t| %>
-<input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>">
-  <label for="tag_id_<%=t.id%>" ><%= t.name %></label>
-<%end %> -->
 <div class="col">
 <%@tags.each do |t| %>
-<!-- <input type="checkbox" name="list[tag_ids][]" value ="<%= t.id %>" id ="tag_id_<%=t.id%>"> -->
   <label for="tag_id_<%=t.id%>" >◙ <%= t.name %> </label>
 <%end %>
 <br><br>
@@ -41,6 +36,17 @@ Enter a new Tag for this List:
   <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
 </div> -->
 <br><br>
-
-<%= link_to "test", user_lists_path(@list.user, @list), class: "bg-info"%>
-<script type='list/javascript'>
+<!-- handlebars template for items -->
+<script id="item-template" type="text/x-handlebars-template">
+<div class="item-text" id="item-text{{id}}">
+  <div class="row">
+    <label class="col">{{description}}</label>
+      <form class="destroy_button" action="/users/<%=@list.user_id%>/lists/<%=@list.id%>/items/{{id}}" accept-charset="UTF-8" method="post">
+        <input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="_method" value="delete">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <button type="submit" class="col-destroy">X</button>
+      </form>
+    </div>
+</div>
+</script>
