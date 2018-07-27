@@ -1,18 +1,39 @@
-// function Item(attributes){
-//   this.description = attributes.name;
-//   this.id = attributes.id;
-// }
-//
-// $(function(){
-//   Item.source = $("#item-template").html()
-//   Item.template= Handlebars.compile(Item.source);
-// })
-//
-// Item.prototype.renderLI = function() {
-//   return Item.template(this)
-//   //this is the item itself which has those values- which knows how to prefill the item with its properties
-// }
+class Item{
+  //init
+  constructor(description, id){
+    this.description = attributes.name;
+    this.id = attributes.id;
+  }
+  //like prototypes, instance methods
+  renderLI(){
+    return Item.template(this)
+  }
+  //static method - like class methods
+  static template(){
+    $('.enter_new_item').val("")
+    Item.source = $("#item-template").html()
+    Item.template= Handlebars.compile(Item.source);
+  }
+}
 
+$(function(){
+  $("form#new_item").submit(function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      type: "POST",
+      url: this.action,
+      data: $(this).serialize(),
+      dataType: "json",
+
+      success: function(json){
+      let item = new Item(json);
+      let itemLI = item.renderLI()
+      debugger
+      $("div.all-items-inlist").append(itemLI);
+    }})
+  });
+});
 // $(function(){
 //   $("form#new_item").submit(function(event) {
 //     event.preventDefault();
@@ -29,40 +50,40 @@
 //   });
 // });
 
-$(function(){
-  $("form#new_item").submit(function(event) {
-    event.preventDefault();
-
-    $.ajax({
-      type: "POST",
-      url: this.action,
-      data: $(this).serialize(),
-      dataType: "json",
-
-      success: function(json){
-        // let item = new Item(json);
-        // let itemLI = item.renderLI()
-        $('.enter_new_item').val("")
-
-        source = $("#item-template").html()
-        template= Handlebars.compile(source);
-        result = template(json);
-        $("div.all-items-inlist").append(result);
-    }})
-  });
-});
+// $(function(){
+//   $("form#new_item").submit(function(event) {
+//     event.preventDefault();
+//
+//     $.ajax({
+//       type: "POST",
+//       url: this.action,
+//       data: $(this).serialize(),
+//       dataType: "json",
+//
+//       success: function(json){
+//       // let item = new Item(json);
+//       // let itemLI = item.renderLI()
+//       $('.enter_new_item').val("")
+//
+//       source = $("#item-template").html()
+//       template= Handlebars.compile(source);
+//       result = template(json);
+//       $("div.all-items-inlist").append(result);
+//     }})
+//   });
+// });
 
 //when you first arrive on the list show page, when you create a new item on that list, it will show the html
 $(function(){
   $("div.all-items-inlist").on("submit", "form.destroy_button", function(event) {
     event.preventDefault();
-      $.ajax({
-        type: "DELETE",
-        url: this.action,
-        data: $(this).serialize(),
-        success: function(response){
-          $("div#item-text"+response.id).remove();
-        }
+    $.ajax({
+      type: "DELETE",
+      url: this.action,
+      data: $(this).serialize(),
+      success: function(response){
+        $("div#item-text"+response.id).remove();
+      }
     })
   })
 });
