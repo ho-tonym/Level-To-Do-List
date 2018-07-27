@@ -13,7 +13,7 @@ $(function () {
       let newListId = userLists[currentListIdIndex + 1]
       $.get(`/users/${userId}/lists/${newListId}.json`, function(data) {
         $("#next_back_title").text(data.name);
-        $("#next_back_title_p").text(data.user.name);
+        $("#next_back_title_p").text(data.user.duck);
         // debugger
         // next_back_title_p
         // re-set the id on the link
@@ -39,7 +39,7 @@ $(function () {
       let newListId = userLists[currentListIdIndex - 1]
       $.get(`/users/${userId}/lists/${newListId}.json`, function(data) {
         $("#next_back_title").text(data["name"]);
-        $("#next_back_title_p").text(data.user.name);
+        $("#next_back_title_p").text(data.user.duck);
         // re-set the id on the link
         $(".js-next").attr("data-list-id", data["id"]);
         $(".js-back").attr("data-list-id", data["id"]);

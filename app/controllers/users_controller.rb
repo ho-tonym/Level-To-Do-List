@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   end
 
   def create
-    # binding.pry
     @user = User.create(user_params)
     if User.find_by(:name => params[:user][:name]) || @user.valid?
       session[:user_id] = @user.id

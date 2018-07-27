@@ -17,6 +17,7 @@ class ListsController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:user_id])
+    @user.update_attribute("duck","-`♥´-")
     @list = List.find(params[:id])
     @item = Item.new #item, tag are empty but set up for form_for tag to wrap around
     @tag = Tag.new

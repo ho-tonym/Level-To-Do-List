@@ -9,7 +9,7 @@ Specs:
 - [x] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
     The lists show page is an index page for all items in that particular list. You can enter new items, and delete items which will send requests via AJAX written with some jQuery. The JSON is serialized and stripped of unnecessary information through the active_model_serializers gem which allows for the use of Active Model Serialization.
 - [x] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
-    ???????
+
 - [x] Use your Rails API and a form to create a resource and render the response without a page refresh.
     Creating items in list#show page or deleting them fills this requirement.
 - [x] Translate JSON responses into js model objects.
