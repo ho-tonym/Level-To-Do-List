@@ -1,13 +1,10 @@
 class Item{
   //init
-  constructor(description, id){
-    this.description = attributes.name;
+  constructor(attributes){
+    this.description = attributes.description;
     this.id = attributes.id;
   }
   //like prototypes, instance methods
-  renderLI(){
-    return Item.template(this)
-  }
   //static method - like class methods
   static template(){
     $('.enter_new_item').val("")
@@ -27,13 +24,16 @@ $(function(){
       dataType: "json",
 
       success: function(json){
+        // debugger
+      // description: json.description, id: json.id
       let item = new Item(json);
-      let itemLI = item.renderLI()
+      let result = Item.template(item);
       debugger
-      $("div.all-items-inlist").append(itemLI);
+      $("div.all-items-inlist").append(result);
     }})
   });
 });
+/////////////no handlebars//////////////
 // $(function(){
 //   $("form#new_item").submit(function(event) {
 //     event.preventDefault();
@@ -49,7 +49,7 @@ $(function(){
 //     }})
 //   });
 // });
-
+////////////using handlebars/////////////
 // $(function(){
 //   $("form#new_item").submit(function(event) {
 //     event.preventDefault();
@@ -63,12 +63,12 @@ $(function(){
 //       success: function(json){
 //       // let item = new Item(json);
 //       // let itemLI = item.renderLI()
-//       $('.enter_new_item').val("")
-//
-//       source = $("#item-template").html()
-//       template= Handlebars.compile(source);
-//       result = template(json);
-//       $("div.all-items-inlist").append(result);
+      // $('.enter_new_item').val("")
+      //
+      // source = $("#item-template").html()
+      // template= Handlebars.compile(source);
+      // result = template(json);
+      // $("div.all-items-inlist").append(result);
 //     }})
 //   });
 // });
