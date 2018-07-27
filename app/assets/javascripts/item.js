@@ -3,14 +3,19 @@ class Item{
   constructor(attributes){
     this.description = attributes.description;
     this.id = attributes.id;
+    console.log("itemcreate")
   }
   //like prototypes, instance methods
   //static method - like class methods
-  static template(){
-    $('.enter_new_item').val("")
-    Item.source = $("#item-template").html()
-    Item.template= Handlebars.compile(Item.source);
-  }
+  // static template(){
+  //   $('.enter_new_item').val("")
+  //   let source = $("#item-template").html()
+  //   let template= Handlebars.compile(source);
+  //   console.log(template)
+  // }
+  // renderLI = function(){
+  //   return Item.template(this)
+  // }
 }
 
 $(function(){
@@ -26,13 +31,16 @@ $(function(){
       success: function(json){
         // debugger
       // description: json.description, id: json.id
-      let item = new Item(json);
-      let result = Item.template(item);
-      debugger
+      $('.enter_new_item').val("")
+      item = new Item(json);
+      source = $("#item-template").html()
+      template= Handlebars.compile(source);
+      result = template(item);
       $("div.all-items-inlist").append(result);
     }})
   });
 });
+
 /////////////no handlebars//////////////
 // $(function(){
 //   $("form#new_item").submit(function(event) {
