@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def time
-    
+
   end
 
   private
