@@ -7,6 +7,19 @@ html, body{
   color: #000000;
   margin: 0 auto;
 }
+.js-next {
+    text-align: right;
+    float: right;
+    padding: 25px;
+    font-size: 25px;
+}
+.js-back {
+  text-align: left;
+  float: left;
+  padding: 25px;
+  font-size: 25px;
+}
+
 .complete {
   color: blue;
 }
