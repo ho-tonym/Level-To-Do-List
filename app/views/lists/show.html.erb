@@ -5,14 +5,14 @@
       <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
       <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
       (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
-      <%= f.submit data: { disable_with: false } %>
+      <%= f.submit :style => "display: none", data: { disable_with: false } %>
     <% end %>
   </div>
   <section class="main">
     <!-- <input class="toggle" type="checkbox"> -->
-      <div class="all-items-inlist">
-        <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
-      </div>
+    <div class="all-items-inlist">
+      <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
+    </div>
   </section>
 <hr>
 </section>

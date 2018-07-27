@@ -16,20 +16,16 @@ class ListsController < ApplicationController
   end
 
   def show
-
     @list = List.find(params[:id])
     @item = Item.new #item, tag are empty but set up for form_for tag to wrap around
     @tag = Tag.new
-    # @user = User.find(1)
-    # @list.tags
     @tags = @list.tags
-    # @list_tags = ListTag.where(list_id: @list.id)
-    # @tags = Tag.where(id: @list_tags.tag_id)
-    # @list_tags
-    # # binding.pry
-    # 10 - tag id
   end
-
+  # this only applies for show actions because it has to decide which to render
+  # respond_to do |f|
+  #   f.json{render :json => @item}
+  #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
+  # end
   def create
 
     @user = User.find_by(id: session[:user_id])

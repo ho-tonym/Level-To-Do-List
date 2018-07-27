@@ -5,14 +5,16 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
+      render json: @item
       # render 'items/show', :layout => false
-      respond_to do |f|
-        f.json{render :json => @item}
-        f.html{user_list_path(@list.user, @list)}
-      end
+      # respond_to do |f|
+      #   f.json{render :json => @item}
+      #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
+      # end
     else
       #instead of rendering it again, throw an error
       render user_list_path(@list.user, @list)
@@ -35,10 +37,12 @@ class ItemsController < ApplicationController
     newlevel = @item.list.user.level += 1
     @item.list.user.update_attribute(:level, newlevel)
     @item.destroy
-    respond_to do |f|
-      f.json{render :json => @item}
-      f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
-    end
+    render json: @item
+
+    # respond_to do |f|
+    #   f.json{render :json => @item}
+    #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
+    # end
   end
 
   private
