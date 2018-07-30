@@ -1,3 +1,13 @@
+$(function() {
+  initPage();
+});
+$(window).bind('page:change', function() {
+  initPage();
+});
+function initPage() {
+  // Page ready code...
+}
+
 class Item{
   //init
   constructor(attributes){
@@ -35,6 +45,8 @@ $(function(){
   });
 });
 
+
+
 $(function(){
   $("div.all-items-inlist").on("submit", "form.destroy_button", function(event) {
     event.preventDefault();
@@ -48,6 +60,8 @@ $(function(){
     })
   })
 });
+
+// $(document).on('turbolinks:load', function (){ alert("turbolinks on load event works") });
 
 /////////////no handlebars//////////////
 // $(function(){
