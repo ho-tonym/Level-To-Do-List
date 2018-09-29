@@ -64,10 +64,23 @@ $(function(){
       data: $(this).serialize(),
       success: function(response){
         $("div#item-text"+response.id).remove();
+        incrementLevel();
       }
     })
   })
 });
+//update the bar with new exp(currentLevel)
+// if that currentLevel/100.floor > displayed level
+//we will update displayed Level
+function incrementLevel (){
+  let currentLevel = Number($("a#user_level_data").text()) + 1;
+  let level = Math.floor(currentLevel / 10) + 1;
+  let exp = ((currentLevel % 10) * 10);
+
+  $("a#user_level").text(`Level: ${level}`);
+  $("a#user_level_data").text(currentLevel)
+  $('div#theprogressbar').attr('aria-valuenow', exp).css('width',(exp + "%"));
+}
 
 $(function () {
   $("#button_for_new_items").on("click", function() {

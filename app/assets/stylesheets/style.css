@@ -21,6 +21,11 @@ h1 {
   border: none;
   color: #fff;
 }
+
+.invisible {
+  color: #fff;
+}
+
 .letterCircle {
   border-radius: 50%;
   padding-top: 3px;
