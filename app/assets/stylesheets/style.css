@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
-html, body{
+body{
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
   color: #000000;
   margin: 0 auto;
+  text-align: center;
 }
 /*  */
-.numberCircle {
+.letterCircle {
   border-radius: 50%;
 
   padding-top: 3px;
@@ -21,9 +22,6 @@ html, body{
   font: 32px Arial, sans-serif;
 }
 
-#next_back_title_p{
-  text-align: center;
-}
 .js-next {
     text-align: right;
     float: right;
@@ -94,16 +92,13 @@ div.field_with_errors input[type="text"]{
   position: relative;
   margin: 0 auto;
 }
-h5 {
-	text-align: center;
-}
+
 h1 {
   padding-top: 25px ;
   padding-bottom: 35px;
 	width: 100%;
 	font-size: 100px;
 	font-weight: 100;
-	text-align: center;
 }
 
 .enter_new_item {
@@ -138,8 +133,7 @@ h1 {
 }
 
 .footer {
-	text-align: center;
-	border-top: 1px solid #e6e6e6;
+  color:#DCDCDC
 }
 .ignore {
   style: none;
@@ -147,20 +141,3 @@ h1 {
   border: none;
   color: #fff;
 }
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/

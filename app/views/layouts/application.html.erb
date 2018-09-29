@@ -21,18 +21,15 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <%if logged_in? %>
-        <div class="numberCircle"><%=current_user_name[0]%></div>
-
+        <div class="letterCircle"><%=current_user_name[0]%></div>
         <a class="navbar-brand">Level: <%= current_user_level %></a>
       <% end %>
-
-      <a class="nav-link" href="/">Home</a>
 
       <%if !logged_in? %>
         <a class="btn btn-primary" href="/users/login">Sign In</a>
       <%end%>
       <%if logged_in? %>
-        <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
+        <a class="nav-link" href="/">My Lists</a>
         <a class="btn btn-primary" href="/logout">Log Out</a>
       <% end %>
     </div>
@@ -45,6 +42,8 @@
 
 
   <%= yield %>
-
+  <div class="footer">
+      <p>This is a List App. Woah! First time this has been done! Wow!</p>
+  </div>
 </body>
 </html>
