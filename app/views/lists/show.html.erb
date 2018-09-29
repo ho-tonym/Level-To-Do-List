@@ -1,20 +1,17 @@
-<!-- <%flash[:error] = @item.errors.full_messages%>-->
-<section class="all">
-  <div class="container-fluid padding">
-    <h1><%= @list.name %></h1>
-      <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
-      <%= f.text_field :description, :class => "enter_new_item", :placeholder =>
-      (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
-      <%= f.submit :style => "display: none", data: { disable_with: false } %>
-    <% end %>
-  </div>
-  <section class="main">
+<div class="container-fluid padding">
+  <h1 class="pt-5 pb-3"><%= @list.name %></h1>
+    <%= form_for [@list, @item], :url => user_list_items_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
+    <%= f.text_field :description, :class => "pt-3 pb-3 enter_new_item", :placeholder =>
+    (@item.errors.full_messages_for(:description).first || "enter a new item...") %>
+    <%= f.submit :style => "display: none", data: { disable_with: false } %>
+  <% end %>
+</div>
+  <section class="main text-left">
     <div class="all-items-inlist">
       <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
     </div>
   </section>
 <hr>
-</section>
 
 <div class="col">
 <%@tags.each do |t| %>
@@ -53,15 +50,12 @@ Enter a new Tag for this List:
 </script>
 
 
-<hr><br><br>
+<hr>
 <div>
-  <h1 id="next_back_title"><%= @list.name %></h1>
-  <a href="" class="js-back" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>" data-lists="<%=@user.lists.ids%>">Back</a>
-  <a href="" class="js-next" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>" data-lists="<%=@user.lists.ids%>">Next</a>
-  <p id="next_back_title_p"> </p>
+  <a id="next_back_title" class="float-center"><%= @list.name %></a>
+  <a href="#" class="float-left" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>" data-lists="<%=@user.lists.ids%>">Back</a>
+  <a href="#" class="float-right" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>" data-lists="<%=@user.lists.ids%>">Next</a>
 </div>
-
-<br><br>
 <hr>
 
 <button id="button_for_new_items" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>">Get items</button>

@@ -7,7 +7,12 @@ body{
   margin: 0 auto;
   text-align: center;
   background: #fff;
-    color: #000000;
+  color: #000000;
+}
+
+h1 {
+	font-size: 400%;
+	font-weight: 100;
 }
 
 .no_style {
@@ -16,7 +21,6 @@ body{
   border: none;
   color: #fff;
 }
-/*  */
 .letterCircle {
   border-radius: 50%;
   padding-top: 3px;
@@ -41,61 +45,23 @@ body{
   float: right;
 }
 .x-destroy:hover{
-  padding-right: 20px;
-  font-size: 25px;
-  background: none;
-  border: 0;
 	color: #af5b5e;
-  float:right;
-  font-weight: bold;
-  float: right;
 }
-/*  */
-/* .item-text {
-  text-decoration: none;
-	height: auto;
-} */
-
+/* input field */
 div.field_with_errors input[type="text"]{
   border: 1px solid red;
 }
 
-.main{
-  text-align: left;
-}
-
-.all {
-	margin: 130px 0 40px 0;
-}
-
-.header{
-  position: relative;
-  margin: 0 auto;
-}
-
-h1 {
-  padding-top: 25px ;
-  padding-bottom: 35px;
-	width: 100%;
-	font-size: 100px;
-	font-weight: 100;
-}
-
 .enter_new_item {
-  padding-top: 16px;
-  padding-bottom: 16px;
-	border: 2px solid;
   font-size: 20px;
   width: 100%;
 
   text-align: center;
-  margin: auto;
-  border: #e6e6e6 2px solid;
 }
 
 #all_new_items_1{
-  list-style: none;
   position: relative;
+
   font-size: 24px;
   padding: 15px 15px 9px;
   margin-left: 45px;
@@ -108,20 +74,7 @@ h1 {
   padding: 15px 15px 9px;
   margin-left: 45px;
 }
-/* next title section */
-.js-next {
-  text-align: right;
-  float: right;
-  padding: 25px;
-  font-size: 25px;
-}
-.js-back {
-  text-align: left;
-  float: left;
-  padding: 25px;
-  font-size: 25px;
-}
-/*  */
+/* footer */
 .footer {
   color:#DCDCDC
 }

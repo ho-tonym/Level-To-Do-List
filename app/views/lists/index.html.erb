@@ -1,31 +1,19 @@
-<section class="all">
-  <div class="container-fluid padding">
-    <h1>Your Lists</h1>
-    <%= form_for([@user, @list]) do |f| %>
-      <%= f.text_field :name, :class => "enter_new_item", :placeholder => ( "enter a new list") %>
-      <!-- create a new list -->
-      <%= f.submit :style => "display: none" %>
-    <% end %>
-  </div>
+<div class="container-fluid padding">
+  <h1>Your Lists</h1>
+  <%= form_for([@user, @list]) do |f| %>
+    <%= f.text_field :name, :class => "enter_new_item", :placeholder => ("enter a new list") %>
+    <%= f.submit :class => "no_style" %>
+  <% end %>
+</div>
 
-  <section class="main">
-    <ul class="all-items-inlist">
-      <% @lists.each do |list| %>
+<section class="main text-left">
+  <ul class="all-items-inlist">
+    <% @lists.each do |list| %>
       <li>
         <div class="nav-link">
-<!-- show all the lists -->
-<!-- list.errors.full_messages.first -->
           <label><%= link_to list.name, user_list_path(id: list.id, user_id: @user.id) %></label>
         </div>
       </li>
-      <% end %>
-    </ul>
-  </section>
+    <% end %>
+  </ul>
 </section>
-<hr>
-
-<br>
-<!-- <div class="text-center">
-  <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
-</div> -->
-<br><br>

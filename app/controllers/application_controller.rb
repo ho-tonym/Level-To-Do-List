@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !!session[:user_id] && User.find(session[:user_id])
-    #second part is for when i wipe the db
   end
 
   def current_user

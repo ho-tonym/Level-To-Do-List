@@ -31,9 +31,6 @@ class ListsController < ApplicationController
   def create
     @user = User.find_by(id: session[:user_id])
     @list = @user.lists.create(list_params)
-    # creates a list associated with user
-    #each list++, so no overlap with other users-
-    # find by list and you will get the user, other people cant see a list that isnt theirs
     if @list.save
       redirect_to "/users/#{@user.id}/lists/#{@list.id}"
       # redirect_to user_list_url(@list)
@@ -41,7 +38,6 @@ class ListsController < ApplicationController
       @lists = @user.lists
       render :index
     end
-    # binding.pry
   end
 
   private

@@ -23,27 +23,27 @@
       <%if logged_in? %>
         <div class="letterCircle"><%=current_user_name[0]%></div>
         <a class="nav-link">Level: <%= current_user_level %></a>
+
       <% end %>
 
       <%if !logged_in? %>
-        <a class="btn btn-primary" href="/users/login">Sign In</a>
+      <a class="btn btn-primary" href="/users/login">Sign In</a>
       <%end%>
+      
       <%if logged_in? %>
-        <a class="nav-link" href="/">My Lists</a>
+        <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
         <a class="btn btn-primary" href="/logout">Log Out</a>
       <% end %>
     </div>
   </nav>
 
-
-
-  <!-- Navigation -->
-
-
-
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+    aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 5%"></div>
+  </div>
   <%= yield %>
+  <hr>
   <div class="footer">
-<p>This is a List App. Woah! First time this has been done! Wow!</p>
-</div>
+    <p class="text-center"> ListyLists Inc &copy; 2018</p></div>
 </body>
 </html>

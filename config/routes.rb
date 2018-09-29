@@ -17,5 +17,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'lists#index'
+  root 'static#index'
 end

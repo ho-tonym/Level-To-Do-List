@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @list = List.find(params[:list_id])
     @item = @list.items.build(item_params)
     if @item.save
@@ -20,14 +19,9 @@ class ItemsController < ApplicationController
     end
   end
 
-
-  # for changing status of complete/na
-  # PATCH - /lists/:list_id/items/:id
   def update
-
     @item = Item.find(params[:id])
     @item.update(item_params)
-
     redirect_to user_list_path(@item.list.user, @item.list)
   end
 
@@ -37,7 +31,6 @@ class ItemsController < ApplicationController
     @item.list.user.update_attribute(:level, newlevel)
     @item.destroy
     render json: @item
-
     # respond_to do |f|
     #   f.json{render :json => @item}
     #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
@@ -48,5 +41,4 @@ class ItemsController < ApplicationController
     def item_params
       params.require(:item).permit(:description, :status)
     end
-
 end
