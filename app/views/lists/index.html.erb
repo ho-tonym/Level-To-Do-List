@@ -1,7 +1,7 @@
 <div class="container-fluid padding">
   <h1>Your Lists</h1>
   <%= form_for([@user, @list]) do |f| %>
-    <%= f.text_field :name, :class => "enter_new_item", :placeholder => ("enter a new list") %>
+    <%= f.text_field :name, :class => "pt-3 pb-3 text-center enter_new_item", :placeholder => ("enter a new list") %>
     <%= f.submit :class => "no_style" %>
   <% end %>
 </div>

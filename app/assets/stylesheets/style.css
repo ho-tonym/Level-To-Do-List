@@ -29,7 +29,6 @@ h1 {
   background: #fff;
   border: 2px solid #2D7BF7;
   color: #2D7BF7;
-  text-align: center;
   font: 32px Arial, sans-serif;
 }
 /* x button */
@@ -42,7 +41,6 @@ h1 {
   color: #d4c8c8;
   float:right;
   font-weight: bold;
-  float: right;
 }
 .x-destroy:hover{
 	color: #af5b5e;
@@ -55,8 +53,6 @@ div.field_with_errors input[type="text"]{
 .enter_new_item {
   font-size: 20px;
   width: 100%;
-
-  text-align: center;
 }
 
 #all_new_items_1{
