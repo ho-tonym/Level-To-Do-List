@@ -8,7 +8,7 @@
 
   <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Complete Bootstrap 4 Website Layout</title>
+	<title>To Do Application</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -18,43 +18,30 @@
 
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-  <div class="container-fluid">
-  	<div class="collapse navbar-collapse" id="navbarResponsive">
-  		<ul class="navbar-nav ml-auto">
-  			<li class="nav-item active">
-  				<a class="nav-link" href="/">Home</a>
-  			</li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
-        </li>
-        <%if !logged_in? %>
-  			<li class="nav-item">
-  				<a class="nav-link" href="/users/signup">Sign Up</a>
-  			</li>
-  			<li class="nav-item">
-  				<a class="nav-link" href="/users/login">Log in</a>
-  			</li>
-        <%end%>
-        <%if logged_in? %>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">Log Out</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-             Hello <%= current_user_name %>!
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-             Level: <%= current_user_level %>
-          </a>
-        </li>
-        <% end %>
-  	</div>
-  </div>
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <%if logged_in? %>
+        <a class="navbar-brand">Level: <%= current_user_level %></a>
+      <% end %>
+
+      <a class="nav-link" href="/">Home</a>
+
+      <%if !logged_in? %>
+        <a class="btn btn-primary" href="/users/login">Sign In</a>
+      <%end%>
+      <%if logged_in? %>
+        <a class="nav-link" href="/users/<%=session[:user_id]%>/lists">My Lists</a>
+        <a class="btn btn-primary" href="/logout">Log Out</a>
+      <% end %>
+    </div>
   </nav>
+
+
+
+  <!-- Navigation -->
+
+
+
   <%= yield %>
 
 </body>

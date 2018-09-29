@@ -1,0 +1,77 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/tony/.nvm/versions/node/v6.11.2/bin/node',
+1 verbose cli   '/Users/tony/.nvm/versions/node/v6.11.2/bin/npm',
+1 verbose cli   'i',
+1 verbose cli   'linter-eslint' ]
+2 info using npm@3.10.10
+3 info using node@v6.11.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData linter-eslint
+8 silly fetchNamedPackageData linter-eslint
+9 silly mapToRegistry name linter-eslint
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'linter-eslint',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'linter-eslint',
+12 silly mapToRegistry   name: 'linter-eslint',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/linter-eslint
+14 verbose request uri https://registry.npmjs.org/linter-eslint
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 10:38:40 AM
+17 verbose request id 77d251b7c92207ef
+18 http request GET https://registry.npmjs.org/linter-eslint
+19 http 200 https://registry.npmjs.org/linter-eslint
+20 verbose headers { date: 'Fri, 10 Aug 2018 14:38:40 GMT',
+20 verbose headers   'content-type': 'application/json; charset=UTF-8',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'set-cookie': [ '__cfduid=d16ff01173bb30c3f03f7e84346aacaaf1533911920; expires=Sat, 10-Aug-19 14:38:40 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+20 verbose headers   'cache-control': 'max-age=300',
+20 verbose headers   'cf-cache-status': 'MISS',
+20 verbose headers   'cf-ray': '4483351d894221f2-EWR',
+20 verbose headers   etag: 'W/"e123e04c46a02e2ac3f5c594d2b62b6d"',
+20 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 verbose headers   'last-modified': 'Sun, 27 May 2018 06:49:00 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip' }
+21 silly get cb [ 200,
+21 silly get   { date: 'Fri, 10 Aug 2018 14:38:40 GMT',
+21 silly get     'content-type': 'application/json; charset=UTF-8',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'set-cookie': [ '__cfduid=d16ff01173bb30c3f03f7e84346aacaaf1533911920; expires=Sat, 10-Aug-19 14:38:40 GMT; path=/; domain=.registry.npmjs.org; HttpOnly' ],
+21 silly get     'cache-control': 'max-age=300',
+21 silly get     'cf-cache-status': 'MISS',
+21 silly get     'cf-ray': '4483351d894221f2-EWR',
+21 silly get     etag: 'W/"e123e04c46a02e2ac3f5c594d2b62b6d"',
+21 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 silly get     'last-modified': 'Sun, 27 May 2018 06:49:00 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip' } ]
+22 verbose get saving linter-eslint to /Users/tony/.npm/registry.npmjs.org/linter-eslint/.cache.json
+23 verbose correctMkdir /Users/tony/.npm correctMkdir not in flight; initializing
+24 verbose stack TypeError: Cannot convert undefined or null to object
+24 verbose stack     at pickVersionFromRegistryDocument (/Users/tony/.nvm/versions/node/v6.11.2/lib/node_modules/npm/lib/fetch-package-metadata.js:125:29)
+24 verbose stack     at /Users/tony/.nvm/versions/node/v6.11.2/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+24 verbose stack     at /Users/tony/.nvm/versions/node/v6.11.2/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+24 verbose stack     at saved (/Users/tony/.nvm/versions/node/v6.11.2/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+24 verbose stack     at /Users/tony/.nvm/versions/node/v6.11.2/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:241:18
+24 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+25 verbose cwd /Users/tony/GitHub/My Projects/Level-To-Do-List
+26 error Darwin 17.3.0
+27 error argv "/Users/tony/.nvm/versions/node/v6.11.2/bin/node" "/Users/tony/.nvm/versions/node/v6.11.2/bin/npm" "i" "linter-eslint"
+28 error node v6.11.2
+29 error npm  v3.10.10
+30 error Cannot convert undefined or null to object
+31 error If you need help, you may report this error at:
+31 error     <https://github.com/npm/npm/issues>
+32 verbose exit [ 1, true ]

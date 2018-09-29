@@ -32,8 +32,6 @@ html, body{
   color: #000000;
 }
 .toggle{
-/* white-space: nowrap; */
-/* display: inline-block; */
   float: left;
 }
 .col-offset-2{
@@ -44,7 +42,6 @@ left: 0;
     width: 25px;
 }
  .col-destroy{
-/* destroy  */
   padding-right: 20px;
 	font-size: 25px;
 	background: none;
@@ -56,7 +53,6 @@ left: 0;
   float: right;
 }
 .col-destroy:hover{
-  /* .destroy */
   padding-right: 20px;
   font-size: 25px;
   background: none;
@@ -70,23 +66,10 @@ left: 0;
 	color: #000000;
   text-decoration: none;
 	height: auto;
-	/* position: absolute; */
-  /* word-break: break-all; */
-  /* display: block; */
 }
 
 div.field_with_errors input[type="text"]{
   border: 1px solid red;
-}
-
-.navbar{
-  padding: .8rem;
-}
-.navbar-nav li{
-  padding-right: 20px;
-}
-.nav-link{
-  font-size: 1.1em !important;
 }
 
 .all {
@@ -121,10 +104,6 @@ h1 {
   margin: auto;
   color: #000000;
   border: #e6e6e6 2px solid;
-}
-
-.main {
-	/* border-top: 1px solid #e6e6e6; */
 }
 
 #all_new_items_1{
