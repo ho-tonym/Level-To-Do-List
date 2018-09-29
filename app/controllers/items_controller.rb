@@ -31,10 +31,6 @@ class ItemsController < ApplicationController
     @item.list.user.update_attribute(:level, newlevel)
     @item.destroy
     render json: @item
-    # respond_to do |f|
-    #   f.json{render :json => @item}
-    #   f.html{redirect_to user_list_path(@item.list.user ,@item.list)}
-    # end
   end
 
   private

@@ -55,22 +55,23 @@ div.field_with_errors input[type="text"]{
   width: 100%;
 }
 
-#all_new_items_1{
-  position: relative;
-
-  font-size: 24px;
-  padding: 15px 15px 9px;
-  margin-left: 45px;
-}
-
-.all-items-inlist {
+.all-things-inlist {
 	list-style: none;
   position: relative;
   font-size: 24px;
   padding: 15px 15px 9px;
   margin-left: 45px;
 }
+
 /* footer */
 .footer {
   color:#DCDCDC
+}
+
+/*  */
+#all_new_items_1{
+  position: relative;
+  font-size: 24px;
+  padding: 15px 15px 9px;
+  margin-left: 45px;
 }

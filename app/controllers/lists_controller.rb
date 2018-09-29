@@ -41,10 +41,9 @@ class ListsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     @list = List.find(params[:id])
     @list.destroy
-    render json: @item
+    render json: @list
   end
 
   private

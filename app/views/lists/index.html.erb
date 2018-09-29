@@ -7,16 +7,15 @@
 </div>
 
 <section class="main text-left">
-  <ul class="all-items-inlist">
+  <div class="all-things-inlist">
     <% @lists.each do |list| %>
-      <li>
-        <div class="nav-link">
-          <label><%= link_to list.name, user_list_path(id: list.id, user_id: @user.id) %></label>
-          <%= form_tag(user_list_path(id: list.id, user_id: @user.id), :method => :delete, :class => "destroy_button" ) do %>
-            <button type="submit" class="x-destroy">X</button>
-          <%end%>
-        </div>
-      </li>
+    <div id="<%='list-text' + list.id.to_s %>">
+      <div class="row">
+        <label><%= link_to list.name, user_list_path(id: list.id, user_id: @user.id) %></label>
+          <%= form_tag(user_list_path(id: list.id, user_id: @user.id), :method => :delete, :class => "destroy_button float-right" ) do %>
+          <button type="submit" class="x-destroy">X</button>
+        <%end%>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </section>
