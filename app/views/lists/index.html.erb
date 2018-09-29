@@ -1,5 +1,8 @@
 <section class="all">
   <div class="container-fluid padding">
+    <h2>This is a List App</h2>
+    <h5>Woah! First time this has been done! Wow!</h5>
+
     <h1>Your Lists</h1>
     <%= form_for([@user, @list]) do |f| %>
       <%= f.text_field :name, :class => "enter_new_item", :placeholder => ( "enter a new list") %>

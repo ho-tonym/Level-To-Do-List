@@ -21,6 +21,8 @@
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
       <%if logged_in? %>
+        <div class="numberCircle"><%=current_user_name[0]%></div>
+
         <a class="navbar-brand">Level: <%= current_user_level %></a>
       <% end %>
 
