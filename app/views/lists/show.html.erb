@@ -6,53 +6,25 @@
     <%= f.submit :style => "display: none", data: { disable_with: false } %>
   <% end %>
 </div>
-  <section class="main text-left">
-    <div class="all-items-inlist">
-      <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
-    </div>
-  </section>
-<hr>
 
-<div class="col">
-<%@tags.each do |t| %>
-  <label for="tag_id_<%=t.id%>" >◙ <%= t.name %> </label>
-<%end %>
-<br><br>
+<section class="main text-left">
+  <div class="all-items-inlist">
+    <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
+  </div>
+</section>
 
-Enter a new Tag for this List:
-<br><br>
-  <%= form_for @tag, :url => user_list_tags_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
-  <%= f.text_field :name %>
-    <%= button_tag :class => "btn btn-primary btn-sm" do %>
-    <%= f.submit "Create Tag", :class => "no_style"%>
-    <% end %>
-<% end %>
-</div>
-<!-- <div class="text-center">
-  <button type="button" class="btn btn-primary btn-lg">Save Changes</button>
-</div> -->
-<br><br>
 <!-- handlebars template for items -->
-
-
-<script id="item-template" type="text/x-handlebars-template">
-<div id="item-text{{id}}">
-  <div class="row">
-    <label class="col">{{description}}</label>
-      <form class="destroy_button" action="/users/<%=@list.user_id%>/lists/<%=@list.id%>/items/{{id}}" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input type="hidden" name="_method" value="delete">
-        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <button type="submit" class="x-destroy">X</button>
-      </form>
+  <script id="item-template" type="text/x-handlebars-template">
+    <div id="item-text{{id}}">
+      <div class="row">
+        <label class="col">{{description}}</label>
+          <form class="destroy_button" action="/users/<%=@list.user_id%>/lists/<%=@list.id%>/items/{{id}}" accept-charset="UTF-8" method="post">
+            <input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="_method" value="delete">
+            <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+            <button type="submit" class="x-destroy">X</button>
+          </form>
+        </div>
     </div>
-</div>
-</script>
-
-
-<hr>
-
-<button id="button_for_new_items" data-list-id="<%=@list.id%>" data-user-id="<%=@list.user_id%>">Get items</button>
-<div id ="all_new_items_1">
-
+  </script>
 </div>

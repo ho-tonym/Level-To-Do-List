@@ -1,5 +1,5 @@
 <div class="container-fluid padding">
-  <h1>Your Lists</h1>
+  <h1 class="pt-5 pb-3">Your Lists</h1>
   <%= form_for([@user, @list]) do |f| %>
     <%= f.text_field :name, :class => "pt-3 pb-3 text-center enter_new_item", :placeholder => ("enter a new list") %>
     <%= f.submit :class => "no_style" %>
@@ -12,6 +12,9 @@
       <li>
         <div class="nav-link">
           <label><%= link_to list.name, user_list_path(id: list.id, user_id: @user.id) %></label>
+          <%= form_tag(user_list_path(id: list.id, user_id: @user.id), :method => :delete, :class => "destroy_button" ) do %>
+            <button type="submit" class="x-destroy">X</button>
+          <%end%>
         </div>
       </li>
     <% end %>

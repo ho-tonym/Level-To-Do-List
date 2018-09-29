@@ -40,6 +40,13 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    # binding.pry
+    @list = List.find(params[:id])
+    @list.destroy
+    render json: @item
+  end
+
   private
     def list_params
       params.require(:list).permit(:name)
