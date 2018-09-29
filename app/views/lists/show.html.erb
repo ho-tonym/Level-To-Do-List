@@ -9,7 +9,6 @@
     <% end %>
   </div>
   <section class="main">
-    <!-- <input class="toggle" type="checkbox"> -->
     <div class="all-items-inlist">
       <%= render :collection => @list.items, :partial => "items/item_li", :as => :item %>
     </div>
@@ -28,7 +27,7 @@ Enter a new Tag for this List:
   <%= form_for @tag, :url => user_list_tags_path(user_id: @list.user_id, list_id: @list.id) do |f| %>
   <%= f.text_field :name %>
     <%= button_tag :class => "btn btn-primary btn-sm" do %>
-    <%= f.submit "Create Tag", :class => "ignore"%>
+    <%= f.submit "Create Tag", :class => "no_style"%>
     <% end %>
 <% end %>
 </div>
@@ -40,14 +39,14 @@ Enter a new Tag for this List:
 
 
 <script id="item-template" type="text/x-handlebars-template">
-<div class="item-text" id="item-text{{id}}">
+<div id="item-text{{id}}">
   <div class="row">
     <label class="col">{{description}}</label>
       <form class="destroy_button" action="/users/<%=@list.user_id%>/lists/<%=@list.id%>/items/{{id}}" accept-charset="UTF-8" method="post">
         <input name="utf8" type="hidden" value="✓">
         <input type="hidden" name="_method" value="delete">
         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-        <button type="submit" class="col-destroy">X</button>
+        <button type="submit" class="x-destroy">X</button>
       </form>
     </div>
 </div>

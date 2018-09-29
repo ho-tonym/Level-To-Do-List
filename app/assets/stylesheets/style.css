@@ -4,14 +4,21 @@ body{
   height: 100%;
   width: 100%;
   font-family: 'Poppins', sans-serif;
-  color: #000000;
   margin: 0 auto;
   text-align: center;
+  background: #fff;
+    color: #000000;
+}
+
+.no_style {
+  style: none;
+  background: none;
+  border: none;
+  color: #fff;
 }
 /*  */
 .letterCircle {
   border-radius: 50%;
-
   padding-top: 3px;
   width: 45px;
   height: 45px;
@@ -21,38 +28,8 @@ body{
   text-align: center;
   font: 32px Arial, sans-serif;
 }
-
-.js-next {
-    text-align: right;
-    float: right;
-    padding: 25px;
-    font-size: 25px;
-}
-.js-back {
-  text-align: left;
-  float: left;
-  padding: 25px;
-  font-size: 25px;
-}
-/*  */
-.complete {
-  color: blue;
-}
-
-.completed {
-  color: #000000;
-}
-.toggle{
-  float: left;
-}
-.col-offset-2{
-  top: 0;
-left: 0;
-    background-color: #eee;
-    height: 25px;
-    width: 25px;
-}
- .col-destroy{
+/* x button */
+ .x-destroy{
   padding-right: 20px;
 	font-size: 25px;
 	background: none;
@@ -63,7 +40,7 @@ left: 0;
   font-weight: bold;
   float: right;
 }
-.col-destroy:hover{
+.x-destroy:hover{
   padding-right: 20px;
   font-size: 25px;
   background: none;
@@ -73,21 +50,24 @@ left: 0;
   font-weight: bold;
   float: right;
 }
-.item-text {
-	color: #000000;
+/*  */
+/* .item-text {
   text-decoration: none;
 	height: auto;
-}
+} */
 
 div.field_with_errors input[type="text"]{
   border: 1px solid red;
 }
 
-.all {
-	background: #fff;
-	margin: 130px 0 40px 0;
-	position: relative;
+.main{
+  text-align: left;
 }
+
+.all {
+	margin: 130px 0 40px 0;
+}
+
 .header{
   position: relative;
   margin: 0 auto;
@@ -110,7 +90,6 @@ h1 {
 
   text-align: center;
   margin: auto;
-  color: #000000;
   border: #e6e6e6 2px solid;
 }
 
@@ -120,7 +99,6 @@ h1 {
   font-size: 24px;
   padding: 15px 15px 9px;
   margin-left: 45px;
-  color: #000000;
 }
 
 .all-items-inlist {
@@ -129,15 +107,21 @@ h1 {
   font-size: 24px;
   padding: 15px 15px 9px;
   margin-left: 45px;
-  color: #000000;
 }
-
+/* next title section */
+.js-next {
+  text-align: right;
+  float: right;
+  padding: 25px;
+  font-size: 25px;
+}
+.js-back {
+  text-align: left;
+  float: left;
+  padding: 25px;
+  font-size: 25px;
+}
+/*  */
 .footer {
   color:#DCDCDC
-}
-.ignore {
-  style: none;
-  background: none;
-  border: none;
-  color: #fff;
 }

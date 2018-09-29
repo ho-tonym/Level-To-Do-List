@@ -15,7 +15,7 @@
         <div class="nav-link">
 <!-- show all the lists -->
 <!-- list.errors.full_messages.first -->
-          <label><%= link_to list.name, user_list_path(id: list.id) %></label>
+          <label><%= link_to list.name, user_list_path(id: list.id, user_id: @user.id) %></label>
         </div>
       </li>
       <% end %>

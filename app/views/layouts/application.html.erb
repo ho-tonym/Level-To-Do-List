@@ -22,7 +22,7 @@
     <div class="container">
       <%if logged_in? %>
         <div class="letterCircle"><%=current_user_name[0]%></div>
-        <a class="navbar-brand">Level: <%= current_user_level %></a>
+        <a class="nav-link">Level: <%= current_user_level %></a>
       <% end %>
 
       <%if !logged_in? %>
@@ -43,7 +43,7 @@
 
   <%= yield %>
   <div class="footer">
-      <p>This is a List App. Woah! First time this has been done! Wow!</p>
-  </div>
+<p>This is a List App. Woah! First time this has been done! Wow!</p>
+</div>
 </body>
 </html>
