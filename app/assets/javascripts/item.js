@@ -5,7 +5,7 @@ class Item{
     this.id = attributes.id;
   }
   static appendToTop(result){
-    $("div.all-items-inlist").append(result);
+    $("div.all-things-inlist").append(result);
   }
   static appendToBottom(result){
     $("#all_new_items_1").append(result);
@@ -56,7 +56,7 @@ $(function(){
 });
 
 $(function(){
-  $("div.all-items-inlist").on("submit", "form.destroy_button", function(event) {
+  $("div.all-things-inlist").on("submit", "form.destroy_button", function(event) {
     event.preventDefault();
     $.ajax({
       type: "DELETE",
