@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_level
-    current_user.level
+    if current_user
+      current_user.level
+    else
+      0
+    end
   end
 
   def require_logged_in
