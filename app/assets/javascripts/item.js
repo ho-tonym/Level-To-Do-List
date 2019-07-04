@@ -1,5 +1,4 @@
 class Item{
-  //init
   constructor(attributes){
     this.description = attributes.description;
     this.id = attributes.id;
@@ -69,9 +68,10 @@ $(function(){
     })
   })
 });
-//update the bar with new exp(currentLevel)
-// if that currentLevel/100.floor > displayed level
-//we will update displayed Level
+
+// Update the bar with new exp(currentLevel)
+// If that currentLevel/100.floor > displayed level, we will update the bar.
+
 function incrementLevel (){
   let currentLevel = Number($("a#user_level_data").text()) + 1;
   let level = Math.floor(currentLevel / 10) + 1;
@@ -82,10 +82,10 @@ function incrementLevel (){
   $('div#theprogressbar').attr('aria-valuenow', exp).css('width',(exp + "%"));
 }
 
+
 $(function () {
   $("#button_for_new_items").on("click", function() {
       event.preventDefault();
-      // alert("it works");
       let currentListId = parseInt($("#button_for_new_items").attr("data-list-id"));
       let userId = parseInt($("#button_for_new_items").attr("data-user-id"))
 
@@ -97,5 +97,3 @@ $(function () {
      });
   });
 });
-
-//when you first arrive on the list show page, when you create a new item on that list, it will show the html

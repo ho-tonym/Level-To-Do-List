@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-  # skip_before_action :require_login, only: [:index]
   before_action  :require_logged_in
 
   def time
@@ -17,9 +16,8 @@ class ListsController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:user_id])
-    # @user.update_attribute("duck","-`♥´-")
     @list = List.find(params[:id])
-    @item = Item.new #item, tag are empty but set up for form_for tag to wrap around
+    @item = Item.new #item tag is empty: set up for form_for tag to wrap around
     @tag = Tag.new
     @tags = @list.tags
     respond_to do |f|
@@ -33,7 +31,6 @@ class ListsController < ApplicationController
     @list = @user.lists.create(list_params)
     if @list.save
       redirect_to "/users/#{@user.id}/lists/#{@list.id}"
-      # redirect_to user_list_url(@list)
     else
       @lists = @user.lists
       render :index
@@ -51,16 +48,3 @@ class ListsController < ApplicationController
       params.require(:list).permit(:name)
     end
 end
-
-
-
-
-
-
-# app/views/user/new.html.erb
-# <%= form_for :user, url: '/users' do |f| %>
-#   Username: <%= f.text_field :username %>
-#   Password: <%= f.password_field :password %>
-#   Password Confirmation: <%= f.password_field :password_confirmation %>
-#   <%= f.submit "Submit" %>
-# <% end %>

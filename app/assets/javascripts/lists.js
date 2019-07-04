@@ -12,3 +12,4 @@ $(function(){
     })
   })
 });
+// remove list item
